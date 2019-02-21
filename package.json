@@ -6,8 +6,10 @@
     "axios": "^0.18.0",
     "http-proxy-middleware": "^0.19.1",
     "material-ui": "^0.20.2",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "moment": "^2.24.0",
+    "react": "^16.8.2",
+    "react-calendar-timeline": "^0.23.0",
+    "react-dom": "^16.8.2",
     "react-scripts": "^2.1.5",
     "react-tap-event-plugin": "^3.0.3"
   },
