@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 
 import './App.css';
+import { Route, Switch } from "react-router-dom";
 import Companies from './components/companies'
 import Managers from './components/managers'
 import Employees from './components/employees'
 import Breaks from './components/breaks'
+import Signup from "./components/signup";
+import Login from "./components/login";
+import { connect } from "react-redux";
+import { getUsers } from "./redux/actions/actions";
 
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Break-Time</h1>
-        </header>
-        <Companies />
-        <Managers />
-        <Employees />
-        <Breaks />
-      </div>
-    );
-  }
+  
 }
 
-export default App;
+
+
+export default App
