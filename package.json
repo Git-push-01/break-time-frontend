@@ -10,8 +10,11 @@
     "react": "^16.8.2",
     "react-calendar-timeline": "^0.23.0",
     "react-dom": "^16.8.2",
+    "react-redux": "^6.0.1",
     "react-scripts": "^2.1.5",
-    "react-tap-event-plugin": "^3.0.3"
+    "react-tap-event-plugin": "^3.0.3",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
