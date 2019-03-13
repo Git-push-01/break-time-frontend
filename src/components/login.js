@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 class Login extends Component {
   state = {
     errors: false,
-    auth: { email: "", password: "" }
+    auth: {email: "", password: "" }
   };
 
   handleChange = e => {
@@ -14,8 +14,8 @@ class Login extends Component {
   handleSubmit = (e, obj) => {
     e.preventDefault();
     console.log("yo", e.target, obj);
-    this.logout();
-    this.login(obj);
+
+    
   };
 
   login = obj => {
@@ -28,6 +28,7 @@ class Login extends Component {
       },
       body: JSON.stringify({
         auth: {
+
           email: obj.auth.email,
           password: obj.auth.password
         }
@@ -51,6 +52,7 @@ class Login extends Component {
       <div>
         <h1 style={{ marginTop: "20vh", marginBottom: "5vh" }} />
         <form onSubmit={e => this.handleSubmit(e, this.state)}>
+        <br />
           <label htmlFor="email"> E-mail: </label>
           <br />
           <input

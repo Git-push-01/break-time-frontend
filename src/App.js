@@ -20,7 +20,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const URL = "http://localhost:3001/users";
+    const URL = "http://localhost:3001/auth/register";
     if (localStorage.getItem("jwt")) {
       fetch(URL, {
         method: "GET",
@@ -52,6 +52,13 @@ class App extends Component {
             path="/signup"
             render={routerProps => <Signup {...routerProps} />}
           />
+
+            <Route
+              exact
+              path="/login"
+              render={routerProps => <Login {...routerProps} />}
+            />
+            
 
 
         </Switch>

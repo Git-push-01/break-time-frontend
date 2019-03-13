@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 class Signup extends Component {
   state = {
     user: {
+      name: "",
       email: "",
       password: ""
     }
@@ -22,11 +23,11 @@ class Signup extends Component {
   handleSubmit = (e, obj) => {
     e.preventDefault();
     console.log("yo", e.target);
-    this.signup(this.state.user.email, this.state.user.password);
+    this.signup(this.state.user.name, this.state.user.email, this.state.user.password);
   };
   componentDidMount() {}
 
-  signup = (email, password, tester) => {
+  signup = (name, email, password, tester) => {
     const URL = "http://localhost:3001/auth/register";
     if (password) {
       fetch(URL, {
@@ -37,6 +38,7 @@ class Signup extends Component {
         },
         body: JSON.stringify({
           user: {
+            name: name,
             email: email,
             password: password
           }
@@ -59,8 +61,18 @@ class Signup extends Component {
       <div className="App">
         <h1 style={{ marginTop: "20vh", marginBottom: "5vh" }} />
         <form onSubmit={e => this.handleSubmit(e, this.state)}>
-          <label htmlFor="email"> E-mail: </label>
+        <br />
+          <label htmlFor="name"> Name: </label>
+          <input
+            onChange={this.handleChange}
+            name="name"
+            id="name"
+            type="text"
+            value={this.state.user.name}
+          />
           <br />
+          <br />
+          <label htmlFor="email"> E-mail: </label>
           <input
             onChange={this.handleChange}
             name="email"
@@ -70,8 +82,8 @@ class Signup extends Component {
           />
           <br />
           <br />
-          <label htmlFor="password">Password:</label>
-          <br />
+          <label htmlFor="password">Password: </label>
+
           <input
             onChange={this.handleChange}
             name="password"
@@ -79,6 +91,7 @@ class Signup extends Component {
             type="text"
             value={this.state.user.password}
           />
+          <br />
           <br />
           <input type="submit" name="Submit" />
         </form>
