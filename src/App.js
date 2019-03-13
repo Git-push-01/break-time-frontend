@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import Companies from './components/companies'
-import Managers from './components/managers'
-import Employees from './components/employees'
-import Breaks from './components/breaks'
+import Companies from "./components/companies";
+import Managers from "./components/managers";
+import Employees from "./components/employees";
+import Breaks from "./components/breaks";
 import Signup from "./components/signup";
 import Login from "./components/login";
+import employeeContainer from "./containers/employeeContainer";
+import managerContainer from "./containers/managerContainer";
+
 import { connect } from "react-redux";
 import { getUsers } from "./redux/actions/actions";
-
 
 class App extends Component {
   state = {
@@ -52,21 +54,25 @@ class App extends Component {
             path="/signup"
             render={routerProps => <Signup {...routerProps} />}
           />
-
-            <Route
-              exact
-              path="/login"
-              render={routerProps => <Login {...routerProps} />}
-            />
-            
-
-
+          <Route
+            exact
+            path="/login"
+            render={routerProps => <Login {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/managerContainer"
+            render={routerProps => <Companies {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/employeeContainer"
+            render={routerProps => <Managers {...routerProps} />}
+          />
         </Switch>
       </div>
     );
   }
 }
 
-
-
-export default App
+export default App;

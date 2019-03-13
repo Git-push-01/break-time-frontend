@@ -58,11 +58,18 @@ class Signup extends Component {
   render() {
     console.log(this.state);
     return (
+
       <div className="App">
+
         <h1 style={{ marginTop: "20vh", marginBottom: "5vh" }} />
+
         <form onSubmit={e => this.handleSubmit(e, this.state)}>
+        <label>
+        <h3>Break-Time</h3>
+        </label>
+        
         <br />
-          <label htmlFor="name"> Name: </label>
+          <label htmlFor="name"> Manager/Employee Name: </label>
           <input
             onChange={this.handleChange}
             name="name"
@@ -96,7 +103,22 @@ class Signup extends Component {
           <input type="submit" name="Submit" />
         </form>
         <br />
+        <form>
+        <div className="radio">
+          <label>
+            <input type="radio" value="option1"/>
+            Manager
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" value="option2" />
+            Employee
+          </label>
+        </div>
+      </form>
       </div>
+
     );
   }
 }
