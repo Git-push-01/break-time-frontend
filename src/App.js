@@ -9,8 +9,8 @@ import Employees from "./components/employees";
 import Breaks from "./components/breaks";
 import Signup from "./components/signup";
 import Login from "./components/login";
-import employeeContainer from "./containers/employeeContainer";
-import managerContainer from "./containers/managerContainer";
+import EmployeeContainer from "./containers/employeeContainer";
+import ManagerContainer from "./containers/managerContainer";
 
 import { connect } from "react-redux";
 import { getUsers } from "./redux/actions/actions";

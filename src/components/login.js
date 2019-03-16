@@ -15,7 +15,8 @@ class Login extends Component {
     e.preventDefault();
     console.log("yo", e.target, obj);
 
-    
+
+
   };
 
   login = obj => {
@@ -42,7 +43,12 @@ class Login extends Component {
           console.log(user);
           localStorage.setItem("jwt", user.jwt);
           if (user.jwt) {
-            this.props.history.push(`/${this.state.auth.email}/homepage`);
+            this.props.history.push(`/managerContainer`);
+          }
+          if (user.jwt){
+            this.props.history.push(`/employeeContainer`);
+
+
           }
         }
       });

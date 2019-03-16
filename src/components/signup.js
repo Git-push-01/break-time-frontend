@@ -67,7 +67,7 @@ class Signup extends Component {
         <label>
         <h3>Break-Time</h3>
         </label>
-        
+
         <br />
           <label htmlFor="name"> Manager/Employee Name: </label>
           <input
@@ -103,20 +103,6 @@ class Signup extends Component {
           <input type="submit" name="Submit" />
         </form>
         <br />
-        <form>
-        <div className="radio">
-          <label>
-            <input type="radio" value="option1"/>
-            Manager
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="option2" />
-            Employee
-          </label>
-        </div>
-      </form>
       </div>
 
     );
