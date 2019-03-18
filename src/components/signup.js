@@ -23,7 +23,11 @@ class Signup extends Component {
   handleSubmit = (e, obj) => {
     e.preventDefault();
     console.log("yo", e.target);
-    this.signup(this.state.user.name, this.state.user.email, this.state.user.password);
+    this.signup(
+      this.state.user.name,
+      this.state.user.email,
+      this.state.user.password
+    );
   };
   componentDidMount() {}
 
@@ -58,17 +62,15 @@ class Signup extends Component {
   render() {
     console.log(this.state);
     return (
-
       <div className="App">
-
         <h1 style={{ marginTop: "20vh", marginBottom: "5vh" }} />
 
         <form onSubmit={e => this.handleSubmit(e, this.state)}>
-        <label>
-        <h3>Break-Time</h3>
-        </label>
+          <label>
+            <h3>Break-Time</h3>
+          </label>
 
-        <br />
+          <br />
           <label htmlFor="name"> Manager/Employee Name: </label>
           <input
             onChange={this.handleChange}
@@ -104,7 +106,6 @@ class Signup extends Component {
         </form>
         <br />
       </div>
-
     );
   }
 }

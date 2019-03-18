@@ -3,10 +3,6 @@ import { withRouter } from "react-router-dom";
 
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import Companies from "./components/companies";
-import Managers from "./components/managers";
-import Employees from "./components/employees";
-import Breaks from "./components/breaks";
 import Signup from "./components/signup";
 import Login from "./components/login";
 import EmployeeContainer from "./containers/employeeContainer";
@@ -46,6 +42,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="App">
         <Switch location={this.props.location}>
@@ -62,12 +59,12 @@ class App extends Component {
           <Route
             exact
             path="/managerContainer"
-            render={routerProps => <Companies {...routerProps} />}
+            render={routerProps => <ManagerContainer {...routerProps} />}
           />
           <Route
             exact
             path="/employeeContainer"
-            render={routerProps => <Managers {...routerProps} />}
+            render={routerProps => <EmployeeContainer {...routerProps} />}
           />
         </Switch>
       </div>

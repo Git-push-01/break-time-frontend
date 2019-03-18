@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 class Login extends Component {
   state = {
     errors: false,
-    auth: {email: "", password: "" }
+    auth: { email: "", password: "" }
   };
 
   handleChange = e => {
@@ -14,9 +14,6 @@ class Login extends Component {
   handleSubmit = (e, obj) => {
     e.preventDefault();
     console.log("yo", e.target, obj);
-
-
-
   };
 
   login = obj => {
@@ -29,7 +26,6 @@ class Login extends Component {
       },
       body: JSON.stringify({
         auth: {
-
           email: obj.auth.email,
           password: obj.auth.password
         }
@@ -45,20 +41,19 @@ class Login extends Component {
           if (user.jwt) {
             this.props.history.push(`/managerContainer`);
           }
-          if (user.jwt){
+          if (user.jwt) {
             this.props.history.push(`/employeeContainer`);
-
-
           }
         }
       });
   };
   render() {
+    console.log(this.state);
     return (
       <div>
         <h1 style={{ marginTop: "20vh", marginBottom: "5vh" }} />
         <form onSubmit={e => this.handleSubmit(e, this.state)}>
-        <br />
+          <br />
           <label htmlFor="email"> E-mail: </label>
           <br />
           <input
