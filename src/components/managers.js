@@ -5,7 +5,7 @@ const Managers = props => {
 
   const getManagers = () => {
     return props.managers.map(manager => (
-      <ul>
+      <ul key={manager.id}>
         <div>Managers ID#: {manager.id}</div>
         <div>Managers Name: {manager.managername}</div>
         <div>Company: {manager.company.companyname}</div>

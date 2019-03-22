@@ -25,6 +25,7 @@ class EmployeeContainer extends Component {
         <Employees employees={this.state.employees} />
 
         <Breaks />
+        <Companies />
       </div>
     );
   }

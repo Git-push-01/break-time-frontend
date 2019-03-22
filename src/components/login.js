@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 class Login extends Component {
   state = {
     errors: false,
@@ -13,24 +14,25 @@ class Login extends Component {
   };
   handleSubmit = (e, obj) => {
     e.preventDefault();
-    console.log("yo", e.target, obj);
+    console.log(this.state);
   };
 
   login = obj => {
-    fetch("http://localhost:3001/auth/login", {
-      // mode: "no-cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        auth: {
-          email: obj.auth.email,
-          password: obj.auth.password
-        }
+    axios
+      .post("http://localhost:3001/auth/login", {
+        // mode: "no-cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          auth: {
+            email: obj.auth.email,
+            password: obj.auth.password
+          }
+        })
       })
-    })
       .then(res => res.json())
       .then(user => {
         if (user.error) {

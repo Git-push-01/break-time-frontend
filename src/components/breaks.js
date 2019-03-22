@@ -3,7 +3,6 @@ import Employees from "./employees";
 import Companies from "./companies";
 import Managers from "./managers";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 class Breaks extends Component {
@@ -23,7 +22,7 @@ class Breaks extends Component {
 
   render() {
     return (
-      <div class="break-list">
+      <div className="break-list">
         <DatePicker
           selected={this.state.startDate}
           onChange={this.handleChange}

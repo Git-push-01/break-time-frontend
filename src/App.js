@@ -13,7 +13,7 @@ import { getUsers } from "./redux/actions/actions";
 
 class App extends Component {
   state = {
-    errors: false,
+    
     auth: { email: "", password: "" }
   };
 

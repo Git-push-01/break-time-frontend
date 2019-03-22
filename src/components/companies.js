@@ -1,10 +1,19 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-class Companies extends Component {
-  render() {
-   return <div></div>
- }
+export default function Companies() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/companies")
+      .then(response => response.json())
+      .then(data => setData(data));
+  });
+  return (
+    <div>
+      <ul>
+        {data.map(company => (
+          <ul key={company.id}>{company.companyname}</ul>
+        ))}
+      </ul>
+    </div>
+  );
 }
-
-
-export default Companies

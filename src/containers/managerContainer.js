@@ -25,6 +25,7 @@ class ManagerContainer extends Component {
       <div>
         <Managers managers={this.state.managers} />
         <Breaks />
+        <Companies />
       </div>
     );
   }
