@@ -1,26 +1,19 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-const Employees = props => {
-  console.log(props.employees);
-
-  const getEmployees = () => {
-    return props.employees.map(employee => (
-      <ul>
-        <div>Employee ID#: {employee.id}</div>
-        <div>Employee Name: {employee.employeename}</div>
-        <div>
-          Company: {employee.company.companyname}
-          <div>Manager: {employee.manager.managername}</div>
-        </div>
-      </ul>
-    ));
-  };
-
+export default function Employees(props) {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/employees")
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
   return (
     <div>
-      <ul>{getEmployees()}</ul>
+      <ul>
+        {data.map(employee => (
+          <ul key={employee.id}>{employee.employeename}</ul>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default Employees;
+}

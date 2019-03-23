@@ -1,23 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const Managers = props => {
-  console.log(props.managers);
-
-  const getManagers = () => {
-    return props.managers.map(manager => (
-      <ul key={manager.id}>
-        <div>Managers ID#: {manager.id}</div>
-        <div>Managers Name: {manager.managername}</div>
-        <div>Company: {manager.company.companyname}</div>
-      </ul>
-    ));
-  };
+export default function Managers(props) {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/managers")
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
 
   return (
     <div>
-      <ul>{getManagers()}</ul>
+      <ul>
+        {data.map(manager => (
+          <ul key={manager.id}>{manager.managername}</ul>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default Managers;
+}

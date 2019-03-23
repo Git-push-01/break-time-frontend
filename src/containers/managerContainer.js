@@ -5,25 +5,16 @@ import Companies from "../components/companies";
 import Managers from "../components/managers";
 import Employees from "../components/employees";
 import Breaks from "../components/breaks";
-import axios from "axios";
+
 
 class ManagerContainer extends Component {
-  state = {
-    managers: []
-  };
-
-  componentDidMount() {
-    axios.get("http://localhost:3001/managers").then(res => {
-      const managers = res.data;
-      this.setState({ managers });
-    });
-  }
 
   render() {
-    console.log(this.state.managers);
+    console.log(this.props);
     return (
       <div>
-        <Managers managers={this.state.managers} />
+        <Managers  />
+        <Employees  />
         <Breaks />
         <Companies />
       </div>
