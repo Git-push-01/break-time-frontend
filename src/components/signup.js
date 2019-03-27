@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
+
 class Signup extends Component {
   state = {
     user: {
@@ -71,7 +72,7 @@ class Signup extends Component {
           </label>
 
           <br />
-          <label htmlFor="name"> Manager/Employee Name: </label>
+          <label htmlFor="name"> Name: </label>
           <input
             onChange={this.handleChange}
             name="name"
