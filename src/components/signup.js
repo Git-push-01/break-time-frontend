@@ -27,7 +27,7 @@ class Signup extends Component {
 
   handleSubmit = (e, obj) => {
     e.preventDefault();
-    console.log("yo", e.target);
+    console.log("yo", e.target, obj);
     this.signup(
       this.state.user.name,
       this.state.user.email,
@@ -81,10 +81,10 @@ class Signup extends Component {
     console.log(this.state);
     return (
       <div>
-        <Form>
+        <Form onSubmit={e => this.handleSubmit(e, this.state)}>
           <Form.Label> Break-Time </Form.Label>
 
-          <Form.Group onSubmit={e => this.handleSubmit(e, this.state)}>
+          <Form.Group >
             <Form.Label>Name</Form.Label>
             <Form.Control
               onChange={this.handleChange}
@@ -96,7 +96,7 @@ class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group >
             <Form.Label>Email</Form.Label>
             <Form.Control
               onChange={this.handleChange}
@@ -108,7 +108,7 @@ class Signup extends Component {
             />
           </Form.Group>
           <Form.Label>Password</Form.Label>
-          <Form.Group>
+          <Form.Group >
             <Form.Control
               onChange={this.handleChange}
               name="password"

@@ -56,9 +56,9 @@ class Login extends Component {
     console.log(this.state);
     return (
       <div>
-        <Form>
-          <Form.Group onSubmit={e => this.handleSubmit(e, this.state)}>
-            <Form.Label>Email address</Form.Label>
+        <Form onSubmit={e => this.handleSubmit(e, this.state)}>
+          <Form.Group >
+            <Form.Label>Email Address</Form.Label>
             <Form.Control
               onChange={this.handleChange}
               name="email"
@@ -72,7 +72,7 @@ class Login extends Component {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group >
             <Form.Label>Password</Form.Label>
             <Form.Control
               onChange={this.handleChange}
