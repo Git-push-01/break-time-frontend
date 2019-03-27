@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Employees from "./employees";
-import Companies from "./companies";
-import Managers from "./managers";
+
 import Datetime from "./datetime"
 
 

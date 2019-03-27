@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
 class Login extends Component {
   state = {
     errors: false,
@@ -15,12 +18,12 @@ class Login extends Component {
   handleSubmit = (e, obj) => {
     e.preventDefault();
     console.log(this.state);
+    console.log(e.target.name);
   };
 
   login = obj => {
-    axios
-      .post("http://localhost:3001/auth/login", {
-        // mode: "no-cors",
+    fetch("http://localhost:3001/auth/login", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,33 +56,37 @@ class Login extends Component {
     console.log(this.state);
     return (
       <div>
-        <h1 style={{ marginTop: "20vh", marginBottom: "5vh" }} />
-        <form onSubmit={e => this.handleSubmit(e, this.state)}>
-          <br />
-          <label htmlFor="email"> E-mail: </label>
-          <br />
-          <input
-            onChange={this.handleChange}
-            name="email"
-            id="email"
-            type="text"
-            value={this.state.auth.email}
-          />
-          <br />
-          <br />
-          <label htmlFor="password">Password:</label>
-          <br />
-          <input
-            onChange={this.handleChange}
-            name="password"
-            id="password"
-            type="text"
-            value={this.state.auth.password}
-          />
-          <br />
-          <input type="submit" name="Submit" />
-        </form>
-        <br />
+        <Form>
+          <Form.Group onSubmit={e => this.handleSubmit(e, this.state)}>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              onChange={this.handleChange}
+              name="email"
+              id="email"
+              type="text"
+              value={this.state.auth.email}
+              placeholder="Enter email"
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              onChange={this.handleChange}
+              name="password"
+              id="password"
+              type="password"
+              value={this.state.auth.password}
+              placeholder="Password"
+            />
+          </Form.Group>
+          <Button variant="light" type="submit">
+            Log In
+          </Button>
+        </Form>
       </div>
     );
   }

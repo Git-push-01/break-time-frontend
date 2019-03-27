@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
+import { Redirect } from "react-router-dom";
+import Form from "react-bootstrap/Form";
 
 class Signup extends Component {
   state = {
     user: {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      redirect: false
     }
   };
 
@@ -30,6 +34,19 @@ class Signup extends Component {
       this.state.user.password
     );
   };
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/login" />;
+    }
+  };
+
   componentDidMount() {}
 
   signup = (name, email, password, tester) => {
@@ -63,49 +80,56 @@ class Signup extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="App">
-        <h1 style={{ marginTop: "20vh", marginBottom: "5vh" }} />
+      <div>
+        <Form>
+          <Form.Label> Break-Time </Form.Label>
 
-        <form onSubmit={e => this.handleSubmit(e, this.state)}>
-          <label>
-            <h3>Break-Time</h3>
-          </label>
+          <Form.Group onSubmit={e => this.handleSubmit(e, this.state)}>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              onChange={this.handleChange}
+              name="name"
+              id="name"
+              type="text"
+              value={this.state.user.name}
+              placeholder="Enter Name"
+            />
+          </Form.Group>
 
-          <br />
-          <label htmlFor="name"> Name: </label>
-          <input
-            onChange={this.handleChange}
-            name="name"
-            id="name"
-            type="text"
-            value={this.state.user.name}
-          />
-          <br />
-          <br />
-          <label htmlFor="email"> E-mail: </label>
-          <input
-            onChange={this.handleChange}
-            name="email"
-            id="email"
-            type="text"
-            value={this.state.user.email}
-          />
-          <br />
-          <br />
-          <label htmlFor="password">Password: </label>
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              onChange={this.handleChange}
+              name="email"
+              id="email"
+              type="text"
+              value={this.state.user.email}
+              placeholder=" Enter Email"
+            />
+          </Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Group>
+            <Form.Control
+              onChange={this.handleChange}
+              name="password"
+              id="password"
+              type="text"
+              value={this.state.user.password}
+              type="password"
+              placeholder=" Enter Password"
+            />
+          </Form.Group>
+          <Button variant="light" type="submit">
+            Submit
+          </Button>
+        </Form>
 
-          <input
-            onChange={this.handleChange}
-            name="password"
-            id="password"
-            type="text"
-            value={this.state.user.password}
-          />
-          <br />
-          <br />
-          <input type="submit" name="Submit" />
-        </form>
-        <br />
+        <div>
+          {this.renderRedirect()}
+          <Button onClick={this.setRedirect} variant="light">
+            Login
+          </Button>
+        </div>
       </div>
     );
   }

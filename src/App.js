@@ -7,13 +7,12 @@ import Signup from "./components/signup";
 import Login from "./components/login";
 import EmployeeContainer from "./containers/employeeContainer";
 import ManagerContainer from "./containers/managerContainer";
-
 import { connect } from "react-redux";
 import { getUsers } from "./redux/actions/actions";
 
 class App extends Component {
   state = {
-    
+
     auth: { email: "", password: "" }
   };
 
