@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link, Redirect } from "react-router-dom";
 import Signup from "./components/signup";
 import Login from "./components/login";
 import EmployeeContainer from "./containers/employeeContainer";
 import ManagerContainer from "./containers/managerContainer";
+import ProfileContainer from "./containers/profileContainer"
 import { connect } from "react-redux";
 import { getUsers } from "./redux/actions/actions";
 
@@ -48,12 +49,17 @@ class App extends Component {
           <Route
             exact
             path="/signup"
-            render={routerProps => <Signup {...routerProps} />}
+            render={routerProps => <Signup {...routerProps}  />}
           />
           <Route
             exact
             path="/login"
             render={routerProps => <Login {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/profileContainer"
+            render={routerProps => <ProfileContainer {...routerProps} />}
           />
           <Route
             exact

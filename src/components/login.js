@@ -17,11 +17,14 @@ class Login extends Component {
   };
   handleSubmit = (e, obj) => {
     e.preventDefault();
-    console.log(this.state);
-    console.log(e.target.name);
-  };
+    console.log(this.state.auth);
 
-  login = obj => {
+    this.login(obj);
+
+  };
+  componentDidMount() {}
+
+   login = obj => {
     fetch("http://localhost:3001/auth/login", {
 
         method: "POST",
@@ -37,26 +40,23 @@ class Login extends Component {
         })
       })
       .then(res => res.json())
-      .then(user => {
+      .then(user => { console.log(user);
         if (user.error) {
           this.setState({ errors: true });
         } else {
-          console.log(user);
+          console.log(user.jwt);
           localStorage.setItem("jwt", user.jwt);
           if (user.jwt) {
-            this.props.history.push(`/managerContainer`);
-          }
-          if (user.jwt) {
-            this.props.history.push(`/employeeContainer`);
+            this.props.history.push("/profileContainer");
           }
         }
       });
   };
   render() {
-    console.log(this.state);
+    console.log(this.state.errors);
     return (
       <div>
-        <Form onSubmit={e => this.handleSubmit(e, this.state)}>
+        <Form className="login" onSubmit={e => this.handleSubmit(e, this.state)}>
           <Form.Group >
             <Form.Label>Email Address</Form.Label>
             <Form.Control
@@ -83,7 +83,7 @@ class Login extends Component {
               placeholder="Password"
             />
           </Form.Group>
-          <Button variant="light" type="submit">
+          <Button className='submit-btn' variant="light" type="submit">
             Log In
           </Button>
         </Form>

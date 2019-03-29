@@ -81,12 +81,13 @@ class Signup extends Component {
     console.log(this.state);
     return (
       <div>
-        <Form onSubmit={e => this.handleSubmit(e, this.state)}>
+        <Form className="signup" onSubmit={e => this.handleSubmit(e, this.state)}>
           <Form.Label> Break-Time </Form.Label>
 
           <Form.Group >
             <Form.Label>Name</Form.Label>
             <Form.Control
+              size="sm"
               onChange={this.handleChange}
               name="name"
               id="name"
@@ -99,6 +100,7 @@ class Signup extends Component {
           <Form.Group >
             <Form.Label>Email</Form.Label>
             <Form.Control
+              size="sm"
               onChange={this.handleChange}
               name="email"
               id="email"
@@ -110,6 +112,7 @@ class Signup extends Component {
           <Form.Label>Password</Form.Label>
           <Form.Group >
             <Form.Control
+              size="sm"
               onChange={this.handleChange}
               name="password"
               id="password"
@@ -119,14 +122,14 @@ class Signup extends Component {
               placeholder=" Enter Password"
             />
           </Form.Group>
-          <Button variant="light" type="submit">
+          <Button className='submit-btn' variant="light" type="submit">
             Submit
           </Button>
         </Form>
 
         <div>
           {this.renderRedirect()}
-          <Button onClick={this.setRedirect} variant="light">
+          <Button className='submit-btn' onClick={this.setRedirect} variant="light">
             Login
           </Button>
         </div>

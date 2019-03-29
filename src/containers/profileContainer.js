@@ -7,25 +7,26 @@ import Employees from "../components/employees";
 import Breaks from "../components/breaks";
 
 
-class ManagerContainer extends Component {
+
+class ProfileContainer extends Component {
 
   render() {
-    console.log(this.props);
 
 
-    
+
+
     return (
       <div>
+      <h1>
+      WOW
+      </h1>
 
 
 
-        <Managers  />
-        <Employees  />
-        <Breaks />
-        <Companies />
+
       </div>
     );
   }
 }
 
-export default withRouter(ManagerContainer);
+export default withRouter(ProfileContainer);
