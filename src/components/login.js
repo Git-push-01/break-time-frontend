@@ -20,44 +20,28 @@ class Login extends Component {
     console.log(this.state.auth);
 
     this.login(obj);
-
   };
-  componentDidMount() {}
 
-   login = obj => {
+
+  login = loginParams => {
     fetch("http://localhost:3001/auth/login", {
-
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          auth: {
-            email: obj.auth.email,
-            password: obj.auth.password
-          }
-        })
-      })
+      method: "POST",
+      credentials: "include",
+      body: JSON.stringify(loginParams)
+    })
       .then(res => res.json())
-      .then(user => { console.log(user);
-        if (user.error) {
-          this.setState({ errors: true });
-        } else {
-          console.log(user.jwt);
-          localStorage.setItem("jwt", user.jwt);
-          if (user.jwt) {
-            this.props.history.push("/profileContainer");
-          }
-        }
-      });
+      .then(user => console.log(user));
   };
+
   render() {
     console.log(this.state.errors);
     return (
       <div>
-        <Form className="login" onSubmit={e => this.handleSubmit(e, this.state)}>
-          <Form.Group >
+        <Form
+          className="login"
+          onSubmit={e => this.handleSubmit(e, this.state)}
+        >
+          <Form.Group>
             <Form.Label>Email Address</Form.Label>
             <Form.Control
               onChange={this.handleChange}
@@ -72,7 +56,7 @@ class Login extends Component {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group >
+          <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
               onChange={this.handleChange}
@@ -83,7 +67,7 @@ class Login extends Component {
               placeholder="Password"
             />
           </Form.Group>
-          <Button className='submit-btn' variant="light" type="submit">
+          <Button className="submit-btn" variant="light" type="submit">
             Log In
           </Button>
         </Form>
