@@ -11,26 +11,39 @@ class Login extends Component {
   };
 
   handleChange = e => {
-    this.setState({
+    this.setState({ 
       auth: { ...this.state.auth, [e.target.name]: e.target.value }
     });
   };
   handleSubmit = (e, obj) => {
     e.preventDefault();
     console.log(this.state.auth);
-
     this.login(obj);
+    console.log(this.state.auth);
   };
+  componentDidMount() {}
 
-
-  login = loginParams => {
+  login = obj => {
     fetch("http://localhost:3001/auth/login", {
       method: "POST",
-      credentials: "include",
-      body: JSON.stringify(loginParams)
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        auth: {
+          email: obj.auth.email,
+          password: obj.auth.password
+        }
+      })
     })
       .then(res => res.json())
-      .then(user => console.log(user));
+      .then(user => {
+        console.log(" authenticated user ", user);
+        if (user.jwt) {
+          this.props.history.push("/profileContainer");
+        }
+      });
   };
 
   render() {

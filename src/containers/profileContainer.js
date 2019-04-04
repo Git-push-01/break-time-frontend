@@ -19,6 +19,10 @@ class ProfileContainer extends Component {
       <div>
       <h1>
       WOW
+      <Managers  />
+      <Employees  />
+      <Breaks />
+      <Companies />
       </h1>
 
 

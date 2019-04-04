@@ -2,6 +2,7 @@ import React from 'react';
 import DateTimeRangeContainer from 'react-advanced-datetimerange-picker'
 import {FormControl} from 'react-bootstrap'
 import moment from "moment"
+import Breaks from "./breaks";
 
 class Datetime extends React.Component {
 
@@ -21,18 +22,21 @@ class Datetime extends React.Component {
     applyCallback(startDate, endDate){
         this.setState({
                 start: startDate,
-                end : endDate
+                end : endDate,
+                break:{startDate, endDate}
             }
         )
     }
 
     render(){
+      console.log("start", this.state.start._d);
+      console.log("end", this.state.end._d);
+      console.log("Hugo Break:", this.state.break );
             let now = new Date();
             let start = moment(new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0));
             let end = moment(start).add(1, "days").subtract(1, "seconds");
             let ranges = {
                 "Today Only": [moment(start), moment(end)],
-                "Yesterday Only": [moment(start).subtract(1, "days"), moment(end).subtract(1, "days")],
                 "3 Days": [moment(start).subtract(3, "days"), moment(end)]
             }
             let local = {
@@ -57,6 +61,7 @@ class Datetime extends React.Component {
                         placeholder="Enter text"
                         />
                     </DateTimeRangeContainer>
+
                 </div>
             );
         }
