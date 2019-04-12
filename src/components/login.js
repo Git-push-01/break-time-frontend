@@ -1,67 +1,61 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { loginUser } from '../redux/actions/userActions'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import ProfileContainer from "../containers/profileContainer"
 
 class Login extends Component {
-  state = {
-    errors: false,
-    auth: { email: "", password: "" }
-  };
+  constructor() {
+    super()
 
-  handleChange = e => {
-    this.setState({ 
-      auth: { ...this.state.auth, [e.target.name]: e.target.value }
-    });
-  };
-  handleSubmit = (e, obj) => {
-    e.preventDefault();
-    console.log(this.state.auth);
-    this.login(obj);
-    console.log(this.state.auth);
-  };
-  componentDidMount() {}
+    this.state = {
+      email: '',
+      password: ''
+    }
 
-  login = obj => {
-    fetch("http://localhost:3001/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        auth: {
-          email: obj.auth.email,
-          password: obj.auth.password
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(user => {
-        console.log(" authenticated user ", user);
-        if (user.jwt) {
-          this.props.history.push("/profileContainer");
-        }
-      });
-  };
+    this.onSubmit = this.onSubmit.bind(this)
+    this.onChange = this.onChange.bind(this)
+  }
+
+  onChange(e) {
+    const field = e.target.name
+    let state = this.state
+
+    state[field] = e.target.value
+    this.setState(state)
+  }
+
+  onSubmit(e) {
+    e.preventDefault()
+
+    const user = this.state
+    this.props.loginUser(user, () =>
+      this.props.history.push('/profileContainer'))
+    }
+
+
+
 
   render() {
-    console.log(this.state.errors);
+    console.log(this.state);
+    const { email, password } = this.state
     return (
       <div>
         <Form
           className="login"
-          onSubmit={e => this.handleSubmit(e, this.state)}
+          onSubmit={ this.onSubmit }
         >
           <Form.Group>
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
-              onChange={this.handleChange}
+              onChange={this.onChange}
               name="email"
               id="email"
               type="text"
-              value={this.state.auth.email}
+              value={ email }
               placeholder="Enter email"
             />
             <Form.Text className="text-muted">
@@ -72,11 +66,11 @@ class Login extends Component {
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
-              onChange={this.handleChange}
+              onChange={this.onChange}
               name="password"
               id="password"
               type="password"
-              value={this.state.auth.password}
+              value={ password }
               placeholder="Password"
             />
           </Form.Group>
@@ -84,9 +78,16 @@ class Login extends Component {
             Log In
           </Button>
         </Form>
+        <a href="/signup" className="btn btn-info" role="button">Sign Up</a>
+      
+
       </div>
     );
   }
 }
 
-export default withRouter(Login);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  loginUser
+}, dispatch)
+
+export default withRouter(connect(null, mapDispatchToProps)(Login))

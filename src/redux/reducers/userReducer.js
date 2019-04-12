@@ -1,22 +1,11 @@
 const initialState = {
-  currentUser: {
-    user: {},
-    jwt: ""
-  },
-  users: []
+  current: {}
+}
 
-};
-
-const userReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "GET_USER": {
-      return { ...state, currentUser: action.getUser };
-    }
-    case "GET_USERS": {
-      return { ...state, users: action.payload };
-    }
-    default:
-          return state;
-      }
-    };
-    export default userReducer;
+export default function userReducer(state = initialState, action) {
+  switch(action.type) {
+    case 'SET_USER':
+      return { ...state, current: action.payload }
+    default: return state
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import DateTimeRangeContainer from 'react-advanced-datetimerange-picker'
 import {FormControl} from 'react-bootstrap'
 import moment from "moment"
-import Breaks from "./breaks";
+
 
 class Datetime extends React.Component {
 
@@ -31,7 +31,7 @@ class Datetime extends React.Component {
     render(){
       console.log("start", this.state.start._d);
       console.log("end", this.state.end._d);
-      console.log("Hugo Break:", this.state.break );
+      console.log("Break:", this.state.break );
             let now = new Date();
             let start = moment(new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0));
             let end = moment(start).add(1, "days").subtract(1, "seconds");
@@ -58,7 +58,7 @@ class Datetime extends React.Component {
                         id="formControlsTextB"
                         type="text"
                         label="Text"
-                        placeholder="Enter text"
+                        placeholder="Choose Break Time"
                         />
                     </DateTimeRangeContainer>
 
