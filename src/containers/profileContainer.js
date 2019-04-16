@@ -12,13 +12,17 @@ class ProfileContainer extends Component {
 
     return (
       <div>
-        Manager: <Managers />
-        Employees: <Employees />
-        <Breaks />
-        Company: <Companies />
+
+       Add Your Company: <Companies />
+       Add Your Manager: <Managers />
+       Add Your Employee: <Employees />
+
         <a href="/signup" className="btn btn-info" role="button">
           Log Out
         </a>
+
+
+
       </div>
     );
   }

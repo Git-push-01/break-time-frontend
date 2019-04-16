@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { loginUser } from '../redux/actions/userActions'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import ProfileContainer from "../containers/profileContainer"
+
 
 class Login extends Component {
   constructor() {
@@ -33,7 +33,7 @@ class Login extends Component {
 
     const user = this.state
     this.props.loginUser(user, () =>
-      this.props.history.push('/profileContainer'))
+      this.props.history.push('/ProfileContainer/', user))
     }
 
 
@@ -79,7 +79,7 @@ class Login extends Component {
           </Button>
         </Form>
         <a href="/signup" className="btn btn-info" role="button">Sign Up</a>
-      
+
 
       </div>
     );
