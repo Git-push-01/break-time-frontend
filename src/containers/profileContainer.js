@@ -11,11 +11,18 @@ class ProfileContainer extends Component {
 
     return (
       <div>
+      <div>
       <a href="/managerContainer" className="btn btn-info" role="button">
         Manager View
-      </a><br></br><a href="/employeeContainer" className="btn btn-info" role="button">
+      </a>
+      </div>
+      <br>
+      </br>
+      <div>
+      <a href="/employeeContainer" className="btn btn-info" role="button">
         Employee View
       </a>
+      </div>
       <br>
       </br>
       <a href="/companyContainer" className="btn btn-info" role="button">

@@ -14,7 +14,7 @@ class CompanyContainer extends Component {
   render() {
     console.log(this.props.actions);
     const companyList = this.props.companies.map(company => {
-      return <Companies key={company.id} company={company} dog='dog' />;
+      return <Companies key={company.id} company={company} />;
 });
     return (
 
