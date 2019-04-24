@@ -33,7 +33,7 @@ class Login extends Component {
 
     const user = this.state
     this.props.loginUser(user, () =>
-      this.props.history.push('/ProfileContainer/', user))
+      this.props.history.push('/ProfileContainer'))
     }
 
 

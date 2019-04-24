@@ -16,12 +16,11 @@ class EmployeeContainer extends Component {
 
 
 
-
-        <Employees />
-        <Managers />
-
+        < Companies />
+        < Managers />
+        < Employees />
         <Breaks />
-        <Companies />
+
       </div>
     );
   }

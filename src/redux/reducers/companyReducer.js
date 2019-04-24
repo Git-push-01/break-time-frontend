@@ -1,16 +1,17 @@
 const initialState = {
   current: {},
-  all: []
+  companies: []
 }
 
 export default function companiesReducer(state = initialState, action) {
+  console.log("in company reducer", state);
   switch(action.type) {
     case 'FETCH_COMPANIES':
-      return { ...state, all: action.payload }
+      return { ...state, companiesReducer: action.payload }
     case 'CREATE_COMPANY':
-      return { ...state, all: [...state.all, action.payload] }
+      return { ...state, companiesReducer: [...state.companiesReducer, action.payload] }
     case 'DELETE_COMPANY':
-      return { ...state, all: state.all.filter(company => company.id !== action.payload.id) }
+      return { ...state, companiesReducer: state.companiesReducer.filter(company => company.id !== action.payload.id) }
 
 
 

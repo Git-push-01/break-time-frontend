@@ -18,11 +18,15 @@ class ManagerContainer extends Component {
       <div>
 
 
-
-        <Managers  />
-        <Employees  />
-        <Breaks />
         <Companies />
+        <Managers  managerslist={this.props}/>
+
+        <Employees  />
+
+        </a>
+        View breaks:
+        <Breaks />
+
       </div>
     );
   }
