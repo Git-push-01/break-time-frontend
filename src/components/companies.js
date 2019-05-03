@@ -4,14 +4,13 @@ import CompanyContainer from "../containers/companyContainer"
 
 
 
-const Companies = (props) => (
+const Companies = props => {
+   console.log(props, "props");
 
-  <div>
-
-  
-  </div>
-
-)
+   return (
+      <div>shit</div>
+   )
+}
 
 
 

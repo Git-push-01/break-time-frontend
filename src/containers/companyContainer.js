@@ -1,46 +1,48 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Companies from "../components/companies";
+import { bindActionCreators } from "redux";
 import { fetchCompanies } from "../redux/actions/companyActions";
-
+import { fetchUser } from "../redux//actions/userActions";
 
 class CompanyContainer extends Component {
 
-
-  componentDidMount() {
+  componentWillMount() {
+    this.props.fetchUser();
     this.props.fetchCompanies();
   }
 
   render() {
-    console.log(this.props.actions);
-    const companyList = this.props.companies.map(company => {
-      return <Companies key={company.id} company={company} />;
-});
-    return (
+    console.log(this.props, "props");
+    const { user, companies } = this.props;
 
+    return (
       <div>
         <h1> Company List:</h1>
-        <div className="companyList">
-          {companyList}
-        </div>
-
+        <Companies  companies={this.props} user={this.props}/>
       </div>
     );
   }
-
 }
 
-const mapStateToProps = (state)  => {
+const mapStateToProps = state => {
+  console.log(state, "company state");
   return {
-     fetchCompanies: state.fetchCompanies
-   };
-}
+    user: state.user,
+    companies: state.companies
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-     fetchCompanies: () => dispatch(fetchCompanies())
-}
-}
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      fetchUser,
+
+      fetchCompanies
+    },
+    dispatch
+  );
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

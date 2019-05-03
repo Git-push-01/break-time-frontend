@@ -1,16 +1,17 @@
 const initialState = {
-  current: {},
-  all: []
+
+  employees: []
 }
 
 export default function employeesReducer(state = initialState, action) {
+  console.log("in employees reducer", state);
   switch(action.type) {
     case 'FETCH_EMPLOYEES':
-      return { ...state, all: action.payload }
+      return { ...state, employees: action.payload }
     case 'CREATE_EMPLOYEE':
-      return { ...state, all: [...state.all, action.payload] }
+      return { ...state, employees: [...state.employees, action.payload] }
     case 'DELETE_EMPLOYEE':
-      return { ...state, all: state.all.filter(company => company.id !== action.payload.id) }
+      return { ...state, employees: state.employees.filter(employee => employee.id !== action.payload.id) }
 
 
 

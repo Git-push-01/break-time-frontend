@@ -1,29 +1,52 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+
 import { connect } from "react-redux";
-import Companies from "../components/companies";
-import Managers from "../components/managers";
+
 import Employees from "../components/employees";
-import Breaks from "../components/breaks";
+import { bindActionCreators } from "redux"
+import { fetchEmployees } from "../redux/actions/employeeActions";
+import { fetchUser } from "../redux//actions/userActions";
 
 
 class EmployeeContainer extends Component {
 
+
+  componentWillMount() {
+    this.props.fetchEmployees();
+    this.props.fetchUser();
+  }
+
   render() {
     console.log(this.props);
+    const { user, employees } = this.props;
     return (
       <div>
+      Employees List:
 
 
 
-        < Companies />
-        < Managers />
-        < Employees />
-        <Breaks />
+
+
+        
+
 
       </div>
     );
   }
 }
 
-export default withRouter(EmployeeContainer);
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      fetchUser,
+
+      fetchEmployees
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(EmployeeContainer);

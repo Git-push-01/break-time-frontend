@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux'
 
 import userReducer from './userReducer'
-import companyReducer from './companyReducer'
+import companiesReducer from './companyReducer'
+import employeesReducer from './employeeReducer'
 
-
-const rootReducer = combineReducers({
-  user: userReducer,
-  company: companyReducer
-
+export default combineReducers({
+  userReducer,
+  companiesReducer,
+  employeesReducer
 })
-
-export default rootReducer

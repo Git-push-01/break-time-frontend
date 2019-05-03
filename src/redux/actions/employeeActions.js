@@ -13,9 +13,9 @@ export const fetchEmployees = () => {
   return dispatch => {
     fetch(`${ baseUrl }/employees`, data)
       .then(response => response.json())
-      .then(employee => dispatch({
+      .then(employees => dispatch({
           type: 'FETCH_EMPLOYEES',
-          payload: employee
+          payload: employees
       }))
       .catch(err => err)
   }
@@ -34,9 +34,9 @@ export const createEmployee = employee => {
   return dispatch => {
     fetch(`${ baseUrl }/employees`, data)
       .then(response => response.json())
-      .then(employee => dispatch({
+      .then(employees => dispatch({
         type: 'CREATE_EMPLOYEE',
-        payload: employee
+        payload: employees
       }))
       .catch(err => err)
   }
@@ -55,9 +55,9 @@ export const deleteEmployee = id => {
   return dispatch => {
     fetch(`${ baseUrl }/employees/${ id }`, data)
       .then(response => response.json())
-      .then(employee => dispatch({
+      .then(employees => dispatch({
         type: 'DELETE_EMPLOYEE',
-        payload: employee
+        payload: employees
       }))
       .catch(err => err)
   }

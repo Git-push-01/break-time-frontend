@@ -13,9 +13,9 @@ export const fetchCompanies = () => {
   return dispatch => {
     fetch(`${ baseUrl }/companies`, data)
       .then(response => response.json())
-      .then(company => dispatch({
-          type: 'FETCH_COMPANY',
-          payload: company
+      .then(companies => dispatch({
+          type: 'FETCH_COMPANIES',
+          payload: companies
       }))
       .catch(err => err)
   }
@@ -34,9 +34,9 @@ export const createCompany = company => {
   return dispatch => {
     fetch(`${ baseUrl }/companies`, data)
       .then(response => response.json())
-      .then(company => dispatch({
+      .then(companies => dispatch({
         type: 'CREATE_COMPANY',
-        payload: company
+        payload: companies
       }))
       .catch(err => err)
   }
