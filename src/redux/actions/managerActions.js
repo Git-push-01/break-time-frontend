@@ -13,9 +13,9 @@ export const fetchManagers = () => {
   return dispatch => {
     fetch(`${ baseUrl }/managers`, data)
       .then(response => response.json())
-      .then(manager => dispatch({
-          type: 'FETCH_MANAGER',
-          payload: manager
+      .then(managers => dispatch({
+          type: 'FETCH_MANAGERS',
+          payload: managers
       }))
       .catch(err => err)
   }
@@ -34,9 +34,9 @@ export const createManager = manager => {
   return dispatch => {
     fetch(`${ baseUrl }/managers`, data)
       .then(response => response.json())
-      .then(manager => dispatch({
+      .then(managers => dispatch({
         type: 'CREATE_MANAGER',
-        payload: manager
+        payload: managers
       }))
       .catch(err => err)
   }
@@ -55,9 +55,9 @@ export const deleteManager = id => {
   return dispatch => {
     fetch(`${ baseUrl }/managers/${ id }`, data)
       .then(response => response.json())
-      .then(manager => dispatch({
+      .then(managers => dispatch({
         type: 'DELETE_MANAGER',
-        payload: manager
+        payload: managers
       }))
       .catch(err => err)
   }

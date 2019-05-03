@@ -74,11 +74,11 @@ class Login extends Component {
               placeholder="Password"
             />
           </Form.Group>
-          <Button className="submit-btn" variant="light" type="submit">
+          <Button className="submit-btn" role="button" type="submit">
             Log In
           </Button>
         </Form>
-        <a href="/signup" className="btn btn-info" role="button">Sign Up</a>
+        <a href="/signup" className="btn btn-info" role="button" >Sign up</a>
 
 
       </div>

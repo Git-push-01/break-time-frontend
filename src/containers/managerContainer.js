@@ -18,14 +18,11 @@ class ManagerContainer extends Component {
       <div>
 
 
-        <Companies />
-        <Managers  managerslist={this.props}/>
-
-        <Employees  />
+        Managers List:
+        <a href="/profileContainer" className="btn btn-info" role="button">
+        Profile
 
         </a>
-        View breaks:
-        <Breaks />
 
       </div>
     );

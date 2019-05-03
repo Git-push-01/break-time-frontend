@@ -12,6 +12,7 @@ import Login from "./components/login";
 import ProfileContainer from "./containers/profileContainer";
 import CompanyContainer from "./containers/companyContainer";
 import EmployeeContainer from "./containers/employeeContainer";
+import ManagerContainer from "./containers/managerContainer"
 
 const loggedIn = () => !!sessionStorage["jwt"];
 
@@ -41,6 +42,11 @@ export default (
         <Route
           path="/employeeContainer"
           component={EmployeeContainer}
+          loggedIn={loggedIn()}
+        />
+        <Route
+          path="/managerContainer"
+          component={ManagerContainer}
           loggedIn={loggedIn()}
         />
         <Route path="/logout" component={() => logout()} />

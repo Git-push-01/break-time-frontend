@@ -93,7 +93,7 @@ class Signup extends Component {
               placeholder="Password Confirmation"
             />
           </Form.Group>
-          <Button className="submit-btn" variant="light" type="submit">
+          <Button className="submit-btn" role="button" type="submit">
             Submit
           </Button>
         </Form>
