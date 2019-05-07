@@ -8,43 +8,36 @@ import { fetchManagers } from "../redux/actions/managerActions";
 import { fetchEmployees } from "../redux/actions/employeeActions";
 
 class CompanyContainer extends Component {
-
-
-
   componentWillMount() {
-    this.props.fetchUser();
     this.props.fetchCompanies();
     this.props.fetchManagers();
     this.props.fetchEmployees();
+    // this.props.fetchBreaks();
   }
 
-
   render() {
-
-    console.log(this.props, "props");
-    const { user, companies, managers, employees } = this.props;
-
     return (
       <div>
-        <h1> Company List:</h1>
+        <h3> Company List:</h3>
         <a href="/profileContainer" className="btn btn-info" role="button">
           Profile
         </a>
-        <Companies />
+
+        <Companies
+          companies={this.props.companies}
+          managers={this.props.managers}
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state, "company state");
+  console.log(state, "state");
   return {
-    combineReducers: state.combineReducers
-    // user: state.user,
-    // companies: state.companies,
-    // employees: state.employees,
-    // managers: state.managers
-
+    companies: state.companiesReducer.companies,
+    managers: state.managersReducer.managers,
+    employees: state.employeesReducer.employees
   };
 };
 

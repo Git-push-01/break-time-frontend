@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import Employees from "../components/employees";
+// import Employees from "../components/employees";
 import { bindActionCreators } from "redux"
 import { fetchEmployees } from "../redux/actions/employeeActions";
 import { fetchUser } from "../redux//actions/userActions";
@@ -20,7 +20,7 @@ class EmployeeContainer extends Component {
 
   render() {
     console.log(this.props);
-    const { user, employees } = this.props;
+    // const { user, employees } = this.props;
     return (
       <div>
       Employees List:

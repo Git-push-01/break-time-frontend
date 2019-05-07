@@ -1,10 +1,9 @@
 const initialState = {
-
   companies: []
 }
 
 export default function companiesReducer(state = initialState, action) {
-  console.log("in company reducer", state);
+
   switch(action.type) {
     case 'FETCH_COMPANIES':
       return { ...state, companies: action.payload }

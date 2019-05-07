@@ -67,10 +67,10 @@ export const fetchUser = () => {
   return dispatch => {
     fetch(`${ baseUrl }/user`, data)
       .then(response => response.json())
-      .then(user => {
+      .then(users => {
         dispatch({
           type: 'SET_USER',
-          payload: user
+          payload: users
         })
       })
       .catch(err => err)

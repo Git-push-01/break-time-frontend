@@ -4,7 +4,7 @@ const initialState = {
 }
 
 export default function employeesReducer(state = initialState, action) {
-  console.log("in employees reducer", state);
+
   switch(action.type) {
     case 'FETCH_EMPLOYEES':
       return { ...state, employees: action.payload }

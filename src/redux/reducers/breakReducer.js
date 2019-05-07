@@ -1,16 +1,16 @@
 const initialState = {
-  current: {},
-  all: []
+
+  breaks: []
 }
 
-export default function breakReducer(state = initialState, action) {
+export default function breaksReducer(state = initialState, action) {
   switch(action.type) {
     case 'FETCH_BREAKS':
-      return { ...state, all: action.payload }
+      return { ...state, breaks: action.payload }
     case 'CREATE_BREAK':
-      return { ...state, all: [...state.all, action.payload] }
+      return { ...state, breaks: [...state.breaks, action.payload] }
     case 'DELETE_BREAK':
-      return { ...state, all: state.all.filter(break => break.id !== action.payload.id) }
+      return { ...state, breaks: state.breaks.filter(breaks => breaks.id !== action.payload.id) }
 
 
 

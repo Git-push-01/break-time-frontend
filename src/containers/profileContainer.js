@@ -3,11 +3,12 @@ import { withRouter } from "react-router-dom";
 import CompaniesForm from "../components/companiesForm";
 import ManagersForm from "../components/managersForm";
 import EmployeesForm from "../components/employeesForm";
+import BreakForm from "../components/breaksForm"
 
 
 class ProfileContainer extends Component {
   render() {
-    console.log(this.props);
+
 
     return (
       <div>
@@ -39,8 +40,13 @@ class ProfileContainer extends Component {
        Add Your Employee: <EmployeesForm />
 
        </div>
-       <br>
-       </br>
+       
+       <div>
+
+
+       </div>
+       Add Your Break: <BreakForm />
+
 
       <div>
         <a href="/signup" className="btn btn-info" role="button">
