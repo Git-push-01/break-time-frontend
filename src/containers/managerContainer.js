@@ -1,32 +1,46 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-// import { connect } from "react-redux";
-// import Companies from "../components/companies";
-// import Managers from "../components/managers";
-// import Employees from "../components/employees";
-// import Breaks from "../components/breaks";
-
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchManagers } from "../redux/actions/managerActions";
+import Managers from "../components/managers";
+import ManagersForm from "../components/managersForm"
 
 class ManagerContainer extends Component {
+  componentDidMount() {
+    this.props.fetchManagers();
+  }
 
   render() {
     console.log(this.props);
 
-
-
     return (
       <div>
-
-
         Managers List:
         <a href="/profileContainer" className="btn btn-info" role="button">
-        Profile
-
+          Profile
         </a>
-
+        <Managers managers={this.props.managers} />
+        Add Your Company: <ManagersForm />
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  console.log(state, "company state");
+  return {
+    managers: state.managersReducer.managers
+  };
+};
 
-export default withRouter(ManagerContainer);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      fetchManagers
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ManagerContainer);

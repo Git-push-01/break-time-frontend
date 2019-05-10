@@ -13,14 +13,14 @@ export const fetchBreaks = () => {
   return dispatch => {
     fetch(`${ baseUrl }/breaks`, data)
       .then(response => response.json())
-      .then(breaktime => dispatch({
-          type: 'FETCH_BREAK',
-          payload: breaktime
+      .then(breaks => dispatch({
+          type: 'FETCH_BREAKS',
+          payload: breaks
       }))
       .catch(err => err)
   }
 }
-export const createBreak = breaktime => {
+export const createBreak = breaks => {
   let data = {
     method: 'POST',
     headers: {
@@ -28,15 +28,15 @@ export const createBreak = breaktime => {
       'Content-Type': 'application/json',
       'Authorization': sessionStorage.jwt
     },
-    body: JSON.stringify({ breaktime })
+    body: JSON.stringify({ breaks })
   }
 
   return dispatch => {
     fetch(`${ baseUrl }/breaks`, data)
       .then(response => response.json())
-      .then(breaktime => dispatch({
+      .then(breaks => dispatch({
         type: 'CREATE_BREAK',
-        payload: breaktime
+        payload: breaks
       }))
       .catch(err => err)
   }
@@ -55,9 +55,9 @@ export const deleteBreak = id => {
   return dispatch => {
     fetch(`${ baseUrl }/breaks/${ id }`, data)
       .then(response => response.json())
-      .then(breaktime => dispatch({
+      .then(breaks => dispatch({
         type: 'DELETE_BREAK',
-        payload: breaktime
+        payload: breaks
         }))
       .catch(err => err)
     }

@@ -1,40 +1,31 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
-
-// import Employees from "../components/employees";
-import { bindActionCreators } from "redux"
+import { bindActionCreators } from "redux";
 import { fetchEmployees } from "../redux/actions/employeeActions";
-import { fetchUser } from "../redux//actions/userActions";
-import { fetchCompanies } from  "../redux/actions/companyActions"
+import Employees from "../components/employees";
+import BreakForm from "../components/breaksForm"
+import EmployeesForm from "../components/employeesForm"
 
 
 class EmployeeContainer extends Component {
-
-
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchEmployees();
-    this.props.fetchUser();
-    this.props.fetchCompanies()
+
   }
 
   render() {
     console.log(this.props);
-    // const { user, employees } = this.props;
+
     return (
       <div>
-      Employees List:
-      <a href="/profileContainer" className="btn btn-info" role="button">
-      Profile
-
-      </a>
-
-
-
-
-
-
-
+        Employees List:
+        <a href="/profileContainer" className="btn btn-info" role="button">
+          Profile
+        </a>
+        <Employees employees={this.props.employees} />
+        Add Your Employee: <EmployeesForm />
+        Add your Break:
+        <BreakForm />
 
       </div>
     );
@@ -43,19 +34,14 @@ class EmployeeContainer extends Component {
 const mapStateToProps = state => {
   console.log(state, "company state");
   return {
-    companies: state.companies,
-    user: state.user,
-    employees: state.employees
+    employees: state.employeesReducer.employees
   };
 };
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchUser,
-
-      fetchEmployees,
-      fetchCompanies
+      fetchEmployees
     },
     dispatch
   );

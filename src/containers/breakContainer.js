@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Companies from "../components/companies";
+import Breaks from "../components/breaks";
 import { bindActionCreators } from "redux";
-import { fetchCompanies } from "../redux/actions/companyActions";
-import CompaniesForm from "../components/companiesForm"
+import { fetchBreaks } from "../redux/actions/breakActions";
 
-class CompanyContainer extends Component {
+
+class BreakContainer extends Component {
   componentDidMount() {
-    this.props.fetchCompanies();
+    this.props.fetchBreaks();
   }
 
   render() {
     return (
       <div>
-        <h3> Company List:</h3>
+        <h3>Breaks List:</h3>
         <a href="/profileContainer" className="btn btn-info" role="button">
           Profile
         </a>
 
-        <Companies companies={this.props.companies} />
-        Add Your Company: <CompaniesForm />
+        <Breaks breaks={this.props.breaks} />
       </div>
     );
   }
@@ -28,14 +27,14 @@ class CompanyContainer extends Component {
 const mapStateToProps = state => {
   console.log(state, "state");
   return {
-    companies: state.companiesReducer.companies
+    breaks: state.breaksReducer.breaks
   };
 };
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchCompanies
+      fetchBreaks
     },
     dispatch
   );
@@ -43,4 +42,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CompanyContainer);
+)(BreakContainer);
