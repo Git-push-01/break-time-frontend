@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import Signup from "./components/signup";
 import Login from "./components/login";
@@ -23,11 +18,12 @@ const logout = () => {
 };
 
 export default (
-  <Router>
-    <div>
-      <Switch>
-        <Route exact path="/signup" component={Signup} loggedInin={loggedIn()} />
-        <Route path="/login" component={Login} loggedIn={loggedIn()} />
+  <BrowserRouter>
+
+      <Switch id='routes'>
+        <Route exact path="/signup" component={Signup}  />
+         <Route path="/login" component={Login} loggedIn={loggedIn()} />
+
 
         <Route
           path="/profileContainer"
@@ -51,6 +47,6 @@ export default (
         />
         <Route path="/logout" component={() => logout()} />
       </Switch>
-    </div>
-  </Router>
+
+  </BrowserRouter>
 );

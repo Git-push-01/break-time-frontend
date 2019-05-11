@@ -12,7 +12,10 @@ export const loginUser = (user, callback) => {
 
   return dispatch => {
     fetch(`${ baseUrl }/login`, data)
-      .then(response => response.json())
+      .then((response) => {
+    if(!response.ok) throw new Error(response.status);
+    else return response.json();
+  })
       .then(user => {
         sessionStorage.setItem('jwt', user.jwt)
 
@@ -23,7 +26,9 @@ export const loginUser = (user, callback) => {
 
         callback()
       })
-      .catch(err => err)
+      .catch((error) => alert('Invalid Email or Password'));
+
+
   }
 }
 

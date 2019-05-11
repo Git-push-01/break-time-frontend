@@ -3,11 +3,13 @@ import { connect } from "react-redux";
 import Companies from "../components/companies";
 import { bindActionCreators } from "redux";
 import { fetchCompanies } from "../redux/actions/companyActions";
+import { fetchUser } from "../redux/actions/userActions"
 import CompaniesForm from "../components/companiesForm"
 
 class CompanyContainer extends Component {
   componentDidMount() {
     this.props.fetchCompanies();
+    this.props.fetchUser();
   }
 
   render() {
@@ -18,7 +20,7 @@ class CompanyContainer extends Component {
           Profile
         </a>
 
-        <Companies companies={this.props.companies} />
+        <Companies companies={this.props.companies} user={this.props.user} />
         Add Your Company: <CompaniesForm />
       </div>
     );
@@ -28,14 +30,16 @@ class CompanyContainer extends Component {
 const mapStateToProps = state => {
   console.log(state, "state");
   return {
-    companies: state.companiesReducer.companies
+    companies: state.companiesReducer.companies,
+    user: state.userReducer.current
   };
 };
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchCompanies
+      fetchCompanies,
+      fetchUser
     },
     dispatch
   );

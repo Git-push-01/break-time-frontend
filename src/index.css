@@ -1,1 +1,8 @@
 
+.error { border: 1px solid red; }
+* {
+  box-sizing: border-box;
+}
+form {
+  padding: 0 180px;
+}
