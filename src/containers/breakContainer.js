@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import Breaks from "../components/breaks";
 import { bindActionCreators } from "redux";
 import { fetchBreaks } from "../redux/actions/breakActions";
-import { fetchUser } from "../redux/actions/userActions"
-
-
+import { fetchUser } from "../redux/actions/userActions";
+import logo from "../images/logo.png"
 
 class BreakContainer extends Component {
   componentDidMount() {
@@ -14,14 +13,19 @@ class BreakContainer extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h3>Breaks List:</h3>
+    console.log(this.props, "container User");
 
 
-        <Breaks breaks={this.props.breaks} user={this.props.user}/>
-      </div>
-    );
+    return(
+      <div style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        padding: 5 + "px"
+      }}>
+       <Breaks breaks={this.props.breaks} user={this.props.user} />
+       </div>
+     )
   }
 }
 

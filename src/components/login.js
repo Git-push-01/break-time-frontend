@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import { loginUser } from "../redux/actions/userActions";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import logo from "../images/logo.png";
 
 function validate(email, password) {
   // true means invalid, so our conditions got reversed
@@ -39,16 +40,14 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-
     const user = this.state;
     this.props.loginUser(user, () =>
       this.props.history.push("/profileContainer")
     );
     this.setState({
-      email:"",
-      password:"",
-
-    })
+      email: "",
+      password: ""
+    });
   }
 
   canBeSubmitted() {
@@ -65,7 +64,18 @@ class Login extends Component {
 
     return (
       <div>
-        <Form className="login" onSubmit={this.onSubmit}>
+        <img src={logo} alt="Logo" className="center" />
+
+        <Form
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            padding: 5 + "px"
+          }}
+          className="login"
+          onSubmit={this.onSubmit}
+        >
           <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control
@@ -94,18 +104,34 @@ class Login extends Component {
               placeholder="Password"
             />
           </Form.Group>
-          <Button
-            disabled={isDisabled}
-            className="submit-btn"
-            role="button"
-            type="submit"
+
+          <div
+            style={{
+              left: 2,
+              fontSize: "32px",
+              position: "relative",
+              top: 23
+            }}
           >
-            Log In
-          </Button>
+            <Button
+              disabled={isDisabled}
+              className="submit-btn"
+              role="button"
+              type="submit"
+            >
+              Log In
+            </Button>
 
-          <a href="/signup" className="btn btn-info" role="button">Sign Up</a>
+            <a
+              href="/signup"
+              text-align="center"
+              className="btn btn-info"
+              role="button"
+            >
+              Sign Up
+            </a>
+          </div>
         </Form>
-
       </div>
     );
   }

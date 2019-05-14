@@ -5,6 +5,7 @@ import { fetchEmployees } from "../redux/actions/employeeActions";
 import Employees from "../components/employees";
 import BreakForm from "../components/breaksForm"
 import EmployeesForm from "../components/employeesForm"
+import logo from "../images/logo.png"
 
 
 class EmployeeContainer extends Component {
@@ -18,6 +19,9 @@ class EmployeeContainer extends Component {
 
     return (
       <div>
+      <div>
+        <img src={logo} alt="Logo" />
+        </div>
         Employees List:
         <a href="/profileContainer" className="btn btn-info" role="button">
           Profile

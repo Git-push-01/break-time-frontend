@@ -3,12 +3,15 @@ import { withRouter } from "react-router-dom";
 
 import BreakForm from "../components/breaksForm";
 import BreakContainer from "../containers/breakContainer";
+import logo from "../images/logo.png"
 
 class ProfileContainer extends Component {
   render() {
     return (
 
       <div>
+        <img src={logo} alt="Logo" />
+        <div>
         <div>
 
           <a href="/managerContainer" className="btn btn-info" role="button">
@@ -26,8 +29,8 @@ class ProfileContainer extends Component {
           Company View
         </a>
         <div>
-        Add your Break:
-        <BreakForm />
+
+
         </div>
 
         <div>
@@ -35,13 +38,16 @@ class ProfileContainer extends Component {
         <a href="/logout" className="btn btn-info" role="button">
           Log Out
         </a>
-
-        </div>
         <div>
         <BreakContainer />
         </div>
 
-      </div>
+        </div>
+        </div>
+
+        
+
+        </div>
     );
   }
 }

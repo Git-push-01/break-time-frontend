@@ -5,19 +5,35 @@ import { bindActionCreators } from "redux";
 import { fetchCompanies } from "../redux/actions/companyActions";
 import { fetchUser } from "../redux/actions/userActions"
 import CompaniesForm from "../components/companiesForm"
+import logo from "../images/logo.png"
 
 class CompanyContainer extends Component {
+
+
+
+
   componentDidMount() {
     this.props.fetchCompanies();
     this.props.fetchUser();
   }
 
+
+
+
   render() {
+
+
+
     return (
+
       <div>
-        <h3> Company List:</h3>
+
+
+        <img src={logo} alt="Logo" />
+
+        <p > Company List:</p>
         <a href="/profileContainer" className="btn btn-info" role="button">
-          Profile
+           Back to Profile
         </a>
 
         <Companies companies={this.props.companies} user={this.props.user} />

@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
 import Form from "react-bootstrap/Form";
+import logo from "../images/logo.png"
 
 class Signup extends Component {
   constructor() {
@@ -40,8 +41,9 @@ class Signup extends Component {
     console.log(this.state);
     return (
       <div>
+
         <Form className="signup" onSubmit={this.onSubmit}>
-          <Form.Label> Break-Time </Form.Label>
+          <Form.Label> <img src={logo} alt="Logo" /></Form.Label>
 
           <Form.Group>
             <Form.Label>Name</Form.Label>
@@ -98,7 +100,7 @@ class Signup extends Component {
           </Button>
           <a href="/login" className="btn btn-info" role="button">Log In</a>
         </Form>
-      
+
 
 
 

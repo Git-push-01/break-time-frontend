@@ -17,10 +17,11 @@ class Companies extends Component {
 
 
     return (
-<ListGroup variant="flush">
+<ListGroup >
   <ListGroup.Item>{companyList.map((companynames, index) => {
      return<p key={index}> {companynames}</p>}
-  )}</ListGroup.Item>
+  )}
+  </ListGroup.Item>
 
 
 </ListGroup>

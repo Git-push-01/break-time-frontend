@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { fetchManagers } from "../redux/actions/managerActions";
 import Managers from "../components/managers";
 import ManagersForm from "../components/managersForm"
+import logo from "../images/logo.png"
 
 class ManagerContainer extends Component {
   componentDidMount() {
@@ -15,6 +16,9 @@ class ManagerContainer extends Component {
 
     return (
       <div>
+      <div>
+        <img src={logo} alt="Logo" />
+        </div>
         Managers List:
         <a href="/profileContainer" className="btn btn-info" role="button">
           Profile
