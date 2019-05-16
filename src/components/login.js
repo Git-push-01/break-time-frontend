@@ -71,7 +71,7 @@ class Login extends Component {
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
-            padding: 5 + "px"
+            padding: 10 + "px"
           }}
           className="login"
           onSubmit={this.onSubmit}

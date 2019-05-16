@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import { Card, Button } from "react-bootstrap";
-import { CardGroup, Container, Row, Col } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { CardGroup, Container, Row } from "react-bootstrap";
 
 // import BreakForm from "../components/breaksForm"
 
 class Breaks extends Component {
   render() {
     console.log(this.props.breaks, " break props");
-    console.log(this.props.user, "user props");
+
     console.log(this.props, "big Props");
 
     const breaksDate = this.props.breaks.map(breaks => breaks)
-    // const almostUser = breaksDate.filter(user => user === this.props.user)
-    // const currentUser = almostUser.find(email => email === this.props.user.email)
+
 
 
 
@@ -23,10 +22,8 @@ class Breaks extends Component {
 
     return (
       <div>
-
-        <p  > User: {this.props.user.name}</p>
-
         <Container>
+        <span>  Current User: {this.props.user.name}</span>
         <Row>
           {breaksDate.map((date, index) => {
             return (
@@ -45,6 +42,7 @@ class Breaks extends Component {
                   <Card.Img variant="top" />
                   <Card.Body>
                     <Card.Title />
+
                     <Card.Text>
                       Employee Name:
                       <br />

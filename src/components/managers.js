@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { ListGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 
 class Managers extends Component {
@@ -17,14 +17,14 @@ class Managers extends Component {
 
 
     return (
-<ListGroup variant="flush">
+<Container>
 
 
-<ListGroup.Item>{managerList.map((managernames, index) => {
+{managerList.map((managernames, index) => {
    return<p key={index}> {managernames}</p>}
-)}</ListGroup.Item>
+)}
 
-</ListGroup>
+</Container>
 
     );
   }

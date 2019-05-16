@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { ListGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+
 
 
 
@@ -16,17 +17,20 @@ class Employees extends Component {
 
 
     return (
-<ListGroup variant="flush">
-<ListGroup.Item>{employeesList.map((employeenames, index) => {
+
+      <Container>
+
+{employeesList.map((employeenames, index) => {
    return<p key={index}> {employeenames}</p>}
-)}</ListGroup.Item>
+)}
+</Container>
 
 
 
 
 
 
-</ListGroup>
+
 
     );
   }

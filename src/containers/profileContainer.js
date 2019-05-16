@@ -1,55 +1,62 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
-import BreakForm from "../components/breaksForm";
 import BreakContainer from "../containers/breakContainer";
 import logo from "../images/logo.png"
+import { Container, Row, Col } from "react-bootstrap";
+
 
 class ProfileContainer extends Component {
   render() {
     return (
 
-      <div>
+      <div className="row">
         <img src={logo} alt="Logo" />
-        <div>
-        <div>
+        <span>
 
-          <a href="/managerContainer" className="btn btn-info" role="button">
-            Manager View
-          </a>
-        </div>
-        <br />
-        <div>
-          <a href="/employeeContainer" className="btn btn-info" role="button">
-            Employee View
-          </a>
-        </div>
-        <br />
         <a href="/companyContainer" className="btn btn-info" role="button">
           Company View
         </a>
-        <div>
+        </span>
+
+        <span>
 
 
-        </div>
+        <a href="/managerContainer" className="btn btn-info" role="button">
+            Manager View
+          </a>
+          </span>
 
-        <div>
-        <br />
+
+          <span>
+          <a href="/employeeContainer" className="btn btn-info" role="button">
+            Employee View
+          </a>
+          </span>
+          <span>
         <a href="/logout" className="btn btn-info" role="button">
           Log Out
         </a>
-        <div>
-        <BreakContainer />
-        </div>
+        </span>
+        <span className="align-center">
+         </span>
+         <Container>
+         <Row>
+
+         <BreakContainer />
+         </Row>
+         </Container>
 
         </div>
-        </div>
 
-        
 
-        </div>
+
+
+
+
+
     );
   }
 }
+
 
 export default withRouter(ProfileContainer);

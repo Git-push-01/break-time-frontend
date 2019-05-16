@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ListGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 
 
@@ -17,14 +17,14 @@ class Companies extends Component {
 
 
     return (
-<ListGroup >
-  <ListGroup.Item>{companyList.map((companynames, index) => {
-     return<p key={index}> {companynames}</p>}
+<Container >
+  {companyList.map((companynames, index) => {
+     return<p key={index}>  Current User Company: {companynames}</p>}
   )}
-  </ListGroup.Item>
 
 
-</ListGroup>
+
+</Container>
 )
 
 

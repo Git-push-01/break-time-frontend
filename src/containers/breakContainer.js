@@ -4,7 +4,7 @@ import Breaks from "../components/breaks";
 import { bindActionCreators } from "redux";
 import { fetchBreaks } from "../redux/actions/breakActions";
 import { fetchUser } from "../redux/actions/userActions";
-import logo from "../images/logo.png"
+// import logo from "../images/logo.png"
 
 class BreakContainer extends Component {
   componentDidMount() {

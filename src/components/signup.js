@@ -5,7 +5,16 @@ import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
 import Form from "react-bootstrap/Form";
-import logo from "../images/logo.png"
+import logo from "../images/logo.png";
+
+function validate(name, email, password, password_confirmation) {
+  // true means invalid, so our conditions got reversed
+  return {
+    name: name.length === 0,
+    email: email.length === 0,
+    password: password.length === 0
+  };
+}
 
 class Signup extends Component {
   constructor() {
@@ -36,24 +45,49 @@ class Signup extends Component {
     this.props.signupUser(user, () => this.props.history.push("/login"));
   }
 
+  canBeSubmitted() {
+    const errors = validate(
+      this.state.name,
+      this.state.email,
+      this.state.password
+    );
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
+  }
+
   render() {
-    const { name, email, password, password_confirmation } = this.state
+    const errors = validate(
+      this.state.name,
+      this.state.email,
+      this.state.password
+    );
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    const { name, email, password } = this.state;
     console.log(this.state);
     return (
       <div>
-
-        <Form className="signup" onSubmit={this.onSubmit}>
-          <Form.Label> <img src={logo} alt="Logo" /></Form.Label>
+      <img src={logo} alt="Logo" className="center" />
+        <Form
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            padding: 10 + "px"
+          }}
+          className="signup"
+          onSubmit={this.onSubmit}
+        >
 
           <Form.Group>
             <Form.Label>Name</Form.Label>
             <Form.Control
+              className={errors.name ? "error" : ""}
               size="sm"
               onChange={this.onChange}
               name="name"
               id="name"
               type="text"
-              value={ name }
+              value={name}
               placeholder="Enter Name"
             />
           </Form.Group>
@@ -61,49 +95,49 @@ class Signup extends Component {
           <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control
+              className={errors.email ? "error" : ""}
               size="sm"
               onChange={this.onChange}
               name="email"
               id="email"
               type="text"
-              value={ email }
+              value={email}
               placeholder=" Enter Email"
             />
           </Form.Group>
-          <Form.Label>Password</Form.Label>
           <Form.Group>
-            <Form.Control
+
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+              className={errors.password ? "error" : ""}
               size="sm"
               onChange={this.onChange}
               name="password"
               id="password"
               type="text"
-              value={ password }
-
+              value={password}
               placeholder=" Enter Password"
             />
           </Form.Group>
-          <Form.Group>
-            <Form.Label>Password Confirmation</Form.Label>
-            <Form.Control
-              size="sm"
-              onChange={this.onChange}
-              name="Password Confirmation"
-              id="Password Confirmation"
-              type="text"
-              value={ password_confirmation }
-              placeholder="Password Confirmation"
-            />
-          </Form.Group>
-          <Button className="submit-btn" role="button" type="submit">
-            Submit
-          </Button>
-          <a href="/login" className="btn btn-info" role="button">Log In</a>
+          <div style={{
+            left: 2,
+            fontSize: "28px",
+            position: "relative",
+            top: 20
+          }}>
+            <Button
+              disabled={isDisabled}
+              className="submit-btn"
+              role="button"
+              type="submit"
+            >
+              Submit
+            </Button>
+            <a href="/login" className="btn btn-info" role="button">
+              Log In
+            </a>
+          </div>
         </Form>
-
-
-
-
       </div>
     );
   }
