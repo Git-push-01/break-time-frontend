@@ -10,7 +10,7 @@ class Employees extends Component {
   render() {
     console.log(this.props, "props");
 
-    const employeesList = this.props.employees.map(employee => employee.employeename);
+    const employeesList = this.props.employees.map(employee => employee);
 
 
 
@@ -21,7 +21,7 @@ class Employees extends Component {
       <Container>
 
 {employeesList.map((employeenames, index) => {
-   return<p key={index}> {employeenames}</p>}
+   return<p key={index}>  Employee Name: {employeenames.employeename} | Employee id#: {employeenames.id}</p>}
 )}
 </Container>
 

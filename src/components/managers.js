@@ -1,31 +1,24 @@
-
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 
-
 class Managers extends Component {
-
   render() {
     console.log(this.props, "props");
 
-
-
-    const managerList = this.props.managers.map(manager => manager.managername)
-
-
-
-
+    const managerList = this.props.managers.map(manager => manager);
 
     return (
-<Container>
+      <div>
+        {managerList.map((managernames, index) => {
+          return (
+            <p key={index}>
 
-
-{managerList.map((managernames, index) => {
-   return<p key={index}> {managernames}</p>}
-)}
-
-</Container>
-
+              Manager Name: {managernames.managername} | Managers id#:
+              {managernames.id}
+            </p>
+          );
+        })}
+      </div>
     );
   }
 }

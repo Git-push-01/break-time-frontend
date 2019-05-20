@@ -3,31 +3,23 @@
 * {
   box-sizing: border-box;
 }
-form {
-  padding: 0 400px;
-  }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
-}
-body, html {
+
+
+ body, html {
     height: 100%;
     margin: 0;
+
 
 }
 body {
 
   background-image: url('./images/background.jpg');
   height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
+  margin: 0;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
 }
 .btn-info {
   margin-right: 5px;

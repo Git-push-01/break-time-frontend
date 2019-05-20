@@ -5,9 +5,12 @@ import Signup from "./components/signup";
 import Login from "./components/login";
 
 import ProfileContainer from "./containers/profileContainer";
-import CompanyContainer from "./containers/companyContainer";
-import EmployeeContainer from "./containers/employeeContainer";
-import ManagerContainer from "./containers/managerContainer"
+import CompaniesForm from "./components/companiesForm"
+import EmployeesForm from "./components/employeesForm"
+import ManagersForm from "./components/managersForm"
+import BreaksForm from "./components/breaksForm"
+
+
 
 const loggedIn = () => !!sessionStorage["jwt"];
 
@@ -20,7 +23,7 @@ const logout = () => {
 export default (
   <BrowserRouter>
 
-      <Switch id='routes'>
+      <Switch >
         <Route exact path="/signup" component={Signup}  />
          <Route path="/login" component={Login} loggedIn={loggedIn()} />
 
@@ -31,18 +34,23 @@ export default (
           loggedIn={loggedIn()}
         />
         <Route
-          path="/companyContainer"
-          component={CompanyContainer}
+          path="/companiesForm"
+          component={CompaniesForm}
           loggedIn={loggedIn()}
         />
         <Route
-          path="/employeeContainer"
-          component={EmployeeContainer}
+          path="/employeesForm"
+          component={EmployeesForm}
           loggedIn={loggedIn()}
         />
         <Route
-          path="/managerContainer"
-          component={ManagerContainer}
+          path="/managersForm"
+          component={ManagersForm}
+          loggedIn={loggedIn()}
+        />
+        <Route
+          path="/breaksForm"
+          component={BreaksForm}
           loggedIn={loggedIn()}
         />
         <Route path="/logout" component={() => logout()} />
