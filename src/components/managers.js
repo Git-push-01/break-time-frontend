@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+
 
 class Managers extends Component {
   render() {
@@ -11,7 +11,7 @@ class Managers extends Component {
       <div>
         {managerList.map((managernames, index) => {
           return (
-            <p key={index}>
+            <p  key={index}>
 
               Manager Name: {managernames.managername} | Managers id#:
               {managernames.id}

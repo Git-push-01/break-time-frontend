@@ -1,73 +1,69 @@
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
-import { CardGroup, Container, Row } from "react-bootstrap";
+import { CardGroup, Container, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
-// import BreakForm from "../components/breaksForm"
+
+
 
 class Breaks extends Component {
+
+
   render() {
-    console.log(this.props.breaks, " break props");
+    console.log(this.props.deleteBreak, " break props");
 
     const breaksList = this.props.breaks.map(breaks => breaks);
 
-
-
-
-
     return (
       <div>
-        <Container>
+        <Container >
+        <Col>
+
+
           <Row>
-            {breaksList.map((date, index) => {
+            {breaksList.map(breaks => {
               return (
                 <CardGroup
                   style={{
                     display: "flex",
-                    flexDirection: "wrap",
+                    flexwrap: "wrap-reverse",
                     justifyContent: "center",
-                    padding: 5 + "px",
-
-
-
-
-
+                    padding: 5 + "px"
                   }}
-                  key={index}
+                  key={breaks.id}
                 >
-                  <Card
-
-                    style={{ background:'#31e8e8', opacity:"0.7"}}
-
-
-                  >
-
+                  <Card style={{ background: "#31c6e8", opacity: "0.7" }}>
                     <Card.Body>
                       <Card.Text>
                         Employee Name:
                         <br />
-                        {date.employee.employeename}
+                        {breaks.employee.employeename}
                         <br />
                         Break Date:
                         <br />
-                        {date.breakdate}
+                        {breaks.breakdate}
                         <br />
                         Break Time:
                         <br />
                         Start:
-                        <br/>
-                        {date.breaketime}
-
+                        <br />
+                        {breaks.breaketime}
                         <br />
                         End:
-                        <br/>
-                        {date.breakend}
+                        <br />
+                        {breaks.breakend}
+                        <br />
+                        <Button onClick={() => this.props.deleteBreak(breaks.id)}>
+                          DELETE
+                        </Button>
                       </Card.Text>
                     </Card.Body>
                   </Card>
                 </CardGroup>
               );
             })}
-          </Row>
+            </Row>
+            </Col>
         </Container>
       </div>
     );

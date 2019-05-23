@@ -60,7 +60,7 @@ class ManagerForm extends Component {
         }}
       >
         <Card
-        style={{ background:'#31c6e8', opacity:"0.8"}}
+        style={{ background:'#31c6e8', opacity:"0.7"}}
         >
           <Card.Body>
       <Form onSubmit={ this.onSubmit }>

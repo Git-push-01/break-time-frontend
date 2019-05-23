@@ -61,7 +61,7 @@ class EmployeeForm extends Component {
           }}
         >
           <Card
-          style={{ background:'#31e8e8', opacity:"0.8"}}
+          style={{ background:'#31e8e8', opacity:"0.7"}}
 
           >
             <Card.Body>
@@ -97,7 +97,7 @@ class EmployeeForm extends Component {
                   value={manager_id}
                   onChange={this.onChange}
                 />
-                <Button type="submit">Add</Button>
+                <Button  variant="primary" type="submit">Add</Button>
               </Form>
             </Card.Body>
           </Card>

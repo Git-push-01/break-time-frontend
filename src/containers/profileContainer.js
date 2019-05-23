@@ -5,7 +5,7 @@ import CompanyContainer from "../containers/companyContainer";
 import ManagerContainer from "../containers/managerContainer";
 import EmployeeContainer from "../containers/employeeContainer";
 import logo from "../images/logo.png";
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchUser } from "../redux/actions/userActions";
@@ -49,20 +49,20 @@ class ProfileContainer extends Component {
           </a>
         </span>
         <span>
-          <a href="/logout" className="btn btn-info" role="button">
+          <a href="/logout" className="btn btn-info" role="button" position="absolute">
             Log Out
           </a>
         </span>
         <span>
 
-          <p>Current User: {this.props.user.email} User id#:{this.props.user.id}</p>
+        <p style={{ background: "#31e89f", opacity: "0.7" }}>Current User: {this.props.user.email} User id#:{this.props.user.name}</p>
         </span>
         <span />
         <span />
         <span>
 
           <Container >
-            <Card style={{ background:'#31e89f', opacity:"0.7"}} >
+            <Card style={{ background:'#31e89f', opacity:"0.7", left: "225px", bottom: "0px"}} >
               <Card.Body>
                 <Col>
                   <CompanyContainer />
@@ -74,27 +74,16 @@ class ProfileContainer extends Component {
           </Container>
         </span>
         <span>
-          <Container
 
-          >
-            <Card  style={{ background:'#31c6e8', opacity:"0.7"}}>
-              <Card.Body>
-                <Col>
-                  <EmployeeContainer />
-                </Col>
-              </Card.Body>
-            </Card>
-          </Container>
+
+          <EmployeeContainer />
+
         </span>
-        <Container
-          style={{
-            display: "flex",
-            flexDirection: "wrap",
-            justifyContent: "space-evenly"
-          }}
-        >
-          <BreakContainer />
-        </Container>
+        <Container style={{ position: "relative", left:"120px"}}>
+
+          <BreakContainer  />
+          </Container>
+
       </div>
     );
   }

@@ -5,7 +5,7 @@ import { fetchManagers } from "../redux/actions/managerActions";
 
 import Managers from "../components/managers";
 
-import { Container, Col } from "react-bootstrap";
+
 
 class ManagerContainer extends Component {
   componentDidMount() {
@@ -18,11 +18,9 @@ class ManagerContainer extends Component {
 
     return (
       <div>
-        <Container>
-          <Col>
+
             <Managers managers={this.props.managers} />
-          </Col>
-        </Container>
+
       </div>
     );
   }

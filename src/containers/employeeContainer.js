@@ -6,7 +6,7 @@ import { fetchEmployees } from "../redux/actions/employeeActions";
 import Employees from "../components/employees";
 
 
-import { Container, Col } from "react-bootstrap";
+
 
 
 class EmployeeContainer extends Component {
@@ -22,14 +22,11 @@ class EmployeeContainer extends Component {
     return (
       <div >
 
-        <Container>
-        <Col>
+
 
 
         <Employees employees={this.props.employees}/>
-        </Col>
 
-        </Container>
 
       </div>
     );

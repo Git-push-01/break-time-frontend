@@ -22,7 +22,7 @@ class Companies extends Component {
 <Row>
 <span>
   {companyName.map((companynames, index) => {
-     return<p key={index}>
+     return<p  key={index}>
      Company Name: {companynames.companyname} | Company id#:{companynames.id}</p>}
   )}
   </span>

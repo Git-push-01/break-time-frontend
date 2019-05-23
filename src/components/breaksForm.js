@@ -66,8 +66,9 @@ class BreakForm extends Component {
           flexDirection: "row",
           justifyContent: "center"
         }}>
+
         <Card
-        style={{ background:'#31e89f', opacity:"0.8", text:"black"}}
+        style={{ background:'#31e89f', opacity:"0.7"}}
 
 
 
@@ -119,6 +120,7 @@ class BreakForm extends Component {
             </Form>
           </Card.Body>
         </Card>
+
         </Container>
       </div>
     );

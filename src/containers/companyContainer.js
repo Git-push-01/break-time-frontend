@@ -3,11 +3,13 @@ import { connect } from "react-redux";
  import Companies from "../components/companies";
 import { bindActionCreators } from "redux";
 import { fetchCompanies } from "../redux/actions/companyActions";
-import { Container, Col } from "react-bootstrap";
+
 
 
 
 class CompanyContainer extends Component {
+
+  
   componentDidMount() {
     this.props.fetchCompanies();
 

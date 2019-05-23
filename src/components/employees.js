@@ -18,10 +18,10 @@ class Employees extends Component {
 
     return (
 
-      <Container>
+      <Container className="sidenav">
 
 {employeesList.map((employeenames, index) => {
-   return<p key={index}>  Employee Name: {employeenames.employeename} | Employee id#: {employeenames.id}</p>}
+   return<p  key={index}>  Employee Name: {employeenames.employeename} | Employee id#: {employeenames.id}</p>}
 )}
 </Container>
 
