@@ -77,7 +77,7 @@ class EmployeeForm extends Component {
 
                 <Form.Control
                   name="user_id"
-                  placeholder=" User id#"
+                  placeholder=" User id"
                   value={user_id}
                   onChange={this.onChange}
                 />
@@ -85,7 +85,7 @@ class EmployeeForm extends Component {
 
                 <Form.Control
                   name="company_id"
-                  placeholder=" Company id#"
+                  placeholder=" Company id"
                   value={company_id}
                   onChange={this.onChange}
                 />
@@ -93,7 +93,7 @@ class EmployeeForm extends Component {
 
                 <Form.Control
                   name="manager_id"
-                  placeholder=" Manager id#"
+                  placeholder=" Manager id"
                   value={manager_id}
                   onChange={this.onChange}
                 />

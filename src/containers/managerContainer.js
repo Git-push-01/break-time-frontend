@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchManagers } from "../redux/actions/managerActions";
+import { fetchManagers, deleteManager } from "../redux/actions/managerActions";
 
 import Managers from "../components/managers";
 
@@ -19,7 +19,7 @@ class ManagerContainer extends Component {
     return (
       <div>
 
-            <Managers managers={this.props.managers} />
+            <Managers managers={this.props.managers} deleteManager={this.props.deleteManager}/>
 
       </div>
     );
@@ -38,6 +38,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       fetchManagers,
+      deleteManager
 
     },
     dispatch

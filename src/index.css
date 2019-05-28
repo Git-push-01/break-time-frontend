@@ -30,18 +30,28 @@ body {
 }
 
 .sidenav {
-   height: 100%; /* Full-height: remove this if you want “auto” height */
+
+
+   height: auto;; /* Full-height: remove this if you want “auto” height */
    width: 210px; /* Set the width of the sidebar */
-   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+   position: absolute;; /* Fixed Sidebar (stay in place on scroll) */
    z-index: 1; /* Stay on top */
-   top: 100; /* Stay at the top */
-   left: 0;
+   top: 200px; /* Stay at the top */
+   left: 800px;
    background-color:#31e8e8;
    opacity: 0.7;
    overflow-x: hidden; /* Disable horizontal scroll */
    padding-top: 20px;
-   padding-left: 10px
+   padding-left: 10px;
+   border-radius: 5px;
+
+}
 
 
 
+
+
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+body {
+  font-family: 'Karla', sans-serif;
 }

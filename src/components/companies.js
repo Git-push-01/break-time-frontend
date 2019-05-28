@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container, Row } from "react-bootstrap";
 
 
 
@@ -9,7 +8,7 @@ class Companies extends Component {
     console.log(this.props, "props");
 
     const companyName = this.props.companies.map(company => company);
-    // const company_id = this.props.companies.map(company => company.id)
+  
 
 
 
@@ -18,20 +17,20 @@ class Companies extends Component {
 
 
     return (
-<Container >
-<Row>
-<span>
+
+
+<div>
   {companyName.map((companynames, index) => {
      return<p  key={index}>
-     Company Name: {companynames.companyname} | Company id#:{companynames.id}</p>}
+     Company Name: {companynames.companyname}<br></br>Company id#:{companynames.id}</p>}
   )}
-  </span>
-  </Row>
+  </div>
 
 
 
 
-</Container>
+
+
 )
 
 

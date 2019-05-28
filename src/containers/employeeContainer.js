@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchEmployees } from "../redux/actions/employeeActions";
+import { fetchEmployees, deleteEmployee } from "../redux/actions/employeeActions";
 
 import Employees from "../components/employees";
 
@@ -25,7 +25,7 @@ class EmployeeContainer extends Component {
 
 
 
-        <Employees employees={this.props.employees}/>
+        <Employees employees={this.props.employees} deleteEmployee={this.props.deleteEmployee}/>
 
 
       </div>
@@ -46,6 +46,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       fetchEmployees,
+      deleteEmployee
 
     },
     dispatch

@@ -5,15 +5,13 @@ import CompanyContainer from "../containers/companyContainer";
 import ManagerContainer from "../containers/managerContainer";
 import EmployeeContainer from "../containers/employeeContainer";
 import logo from "../images/logo.png";
-import { Card, Container, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchUser } from "../redux/actions/userActions";
 
-
 class ProfileContainer extends Component {
   componentWillMount() {
-
     this.props.fetchUser();
   }
 
@@ -21,10 +19,8 @@ class ProfileContainer extends Component {
     console.log(this.props, "ProfileContainer Props");
 
     return (
-
-      <div className="row">
+      <div style={{ display: "inline-block"}}>
         <img src={logo} alt="Logo" />
-
 
         <span>
           <a href="/companiesForm" className="btn btn-info" role="button">
@@ -49,41 +45,58 @@ class ProfileContainer extends Component {
           </a>
         </span>
         <span>
-          <a href="/logout" className="btn btn-info" role="button" position="absolute">
+          <a
+            href="/logout"
+            className="btn btn-info"
+            role="button"
+            position="absolute"
+          >
             Log Out
           </a>
         </span>
-        <span>
+        <span >
 
-        <p style={{ background: "#31e89f", opacity: "0.7" }}>Current User: {this.props.user.email} User id#:{this.props.user.name}</p>
+          <ul
+            style={{
+
+              background: "#31e89f",
+              opacity: "0.7",
+              borderRadius: "5px"
+            }}
+          >
+            Current User: {this.props.user.name} <br /> User id:{" "}
+            {this.props.user.id}
+          </ul>
+
+
+          <ul
+            style={{
+              background: "#31e8e8",
+              opacity: "0.7",
+              borderRadius: "5px"
+            }}
+          >
+            <CompanyContainer />
+          </ul>
+
+          <ul
+            style={{
+              background: "#31c6e8",
+              opacity: "0.7",
+              borderRadius: "5px"
+            }}
+          >
+            <ManagerContainer />
+          </ul>
         </span>
-        <span />
-        <span />
-        <span>
 
-          <Container >
-            <Card style={{ background:'#31e89f', opacity:"0.7", left: "225px", bottom: "0px"}} >
-              <Card.Body>
-                <Col>
-                  <CompanyContainer />
+        <EmployeeContainer />
 
-                  <ManagerContainer />
-                </Col>
-              </Card.Body>
-            </Card>
-          </Container>
-        </span>
-        <span>
-
-
-          <EmployeeContainer />
-
-        </span>
-        <Container style={{ position: "relative", left:"120px"}}>
-
-          <BreakContainer  />
-          </Container>
-
+        <Container
+          style={{ position: "relative", left: "105px", top: "-10px" }}
+        >
+          <BreakContainer />
+        </Container>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "react-bootstrap";
 
 
 class Managers extends Component {
@@ -13,8 +14,11 @@ class Managers extends Component {
           return (
             <p  key={index}>
 
-              Manager Name: {managernames.managername} | Managers id#:
+
+              Manager Name: {managernames.managername} <br></br> Managers id#:
               {managernames.id}
+              <br></br>
+              <Button onClick={() => this.props.deleteManager(managernames.id)}>  DELETE </Button>
             </p>
           );
         })}
