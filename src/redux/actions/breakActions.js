@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3001/api/v1'
-
+const baseUrl = 'https://break-time-api.herokuapp.com'
+// http://localhost:3001/api/v1
 export const fetchBreaks = () => {
   let data = {
     method: 'GET',

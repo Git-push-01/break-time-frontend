@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001/api/v1'
+const baseUrl = 'https://break-time-api.herokuapp.com'
 
 export const fetchEmployees = () => {
   let data = {
