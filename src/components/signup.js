@@ -121,9 +121,9 @@ class Signup extends Component {
           </Form.Group>
           <div style={{
             left: 2,
-            fontSize: "28px",
+            fontSize: "32px",
             position: "relative",
-            top: 20
+            top: 23
           }}>
             <Button
               disabled={isDisabled}
