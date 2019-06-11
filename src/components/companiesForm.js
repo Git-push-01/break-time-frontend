@@ -56,7 +56,7 @@ class CompanyForm extends Component {
             justifyContent: "center"
           }}
         >
-          <Card style={{ background:'#31e89f', opacity:"0.7"}}>
+          <Card style={{ background: "#31e89f", opacity: "0.7" }}>
             <Card.Body>
               <Form onSubmit={this.onSubmit}>
                 <Form.Label> Enter Company Name</Form.Label>
@@ -73,7 +73,7 @@ class CompanyForm extends Component {
                   value={user_id}
                   onChange={this.onChange}
                 />
-                <Button  variant="primary" type="submit">
+                <Button variant="primary" type="submit">
                   Add
                 </Button>
               </Form>

@@ -19,7 +19,7 @@ class ProfileContainer extends Component {
     console.log(this.props, "ProfileContainer Props");
 
     return (
-      <div style={{ display: "inline-block"}}>
+      <div style={{ display: "inline-block" }}>
         <img src={logo} alt="Logo" />
 
         <span>
@@ -54,11 +54,9 @@ class ProfileContainer extends Component {
             Log Out
           </a>
         </span>
-        <span >
-
+        <span>
           <ul
             style={{
-
               background: "#31e89f",
               opacity: "0.7",
               borderRadius: "5px"
@@ -67,7 +65,6 @@ class ProfileContainer extends Component {
             Current User: {this.props.user.name} <br /> User id:{" "}
             {this.props.user.id}
           </ul>
-
 
           <ul
             style={{

@@ -54,73 +54,67 @@ class BreakForm extends Component {
     } = this.state;
 
     return (
-      <div >
+      <div>
         <img src={logo} alt="Logo" />
         <span>
           <a href="/ProfileContainer" className="btn btn-info" role="button">
             Back To Profile
           </a>
         </span>
-        <Container style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center"
-        }}>
-
-        <Card
-        style={{ background:'#31e89f', opacity:"0.7"}}
-
-
-
-
+        <Container
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center"
+          }}
         >
-          <Card.Body>
-            <Form  onSubmit={this.onSubmit}>
-              <Form.Label>Enter Date</Form.Label>
-              <Form.Control
-                type="date"
-                name="breakdate"
-                value={breakdate}
-                onChange={this.onChange}
-              />
-              <Form.Label>Break Start Time</Form.Label>
-              <Form.Control
-                type="time"
-                name="breaketime"
-                placeholder="Break Start"
-                value={breaketime}
-                onChange={this.onChange}
-              />
-              <Form.Label>Break End Time</Form.Label>
-              <Form.Control
-                type="time"
-                name="breakend"
-                placeholder="Break End"
-                value={breakend}
-                onChange={this.onChange}
-              />
-              <Form.Label>User id</Form.Label>
+          <Card style={{ background: "#31e89f", opacity: "0.7" }}>
+            <Card.Body>
+              <Form onSubmit={this.onSubmit}>
+                <Form.Label>Enter Date</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="breakdate"
+                  value={breakdate}
+                  onChange={this.onChange}
+                />
+                <Form.Label>Break Start Time</Form.Label>
+                <Form.Control
+                  type="time"
+                  name="breaketime"
+                  placeholder="Break Start"
+                  value={breaketime}
+                  onChange={this.onChange}
+                />
+                <Form.Label>Break End Time</Form.Label>
+                <Form.Control
+                  type="time"
+                  name="breakend"
+                  placeholder="Break End"
+                  value={breakend}
+                  onChange={this.onChange}
+                />
+                <Form.Label>User id</Form.Label>
 
-              <Form.Control
-                name="user_id"
-                placeholder="Enter User Id"
-                value={user_id}
-                onChange={this.onChange}
-              />
-              <Form.Label>Employee id</Form.Label>
-              <Form.Control
-                name="employee_id"
-                placeholder="Enter Employee Id"
-                value={employee_id}
-                onChange={this.onChange}
-              />
-              <Button variant="primary" type="submit">
-                Add
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
-
+                <Form.Control
+                  name="user_id"
+                  placeholder="Enter User Id"
+                  value={user_id}
+                  onChange={this.onChange}
+                />
+                <Form.Label>Employee id</Form.Label>
+                <Form.Control
+                  name="employee_id"
+                  placeholder="Enter Employee Id"
+                  value={employee_id}
+                  onChange={this.onChange}
+                />
+                <Button variant="primary" type="submit">
+                  Add
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
         </Container>
       </div>
     );

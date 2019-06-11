@@ -60,10 +60,7 @@ class EmployeeForm extends Component {
             justifyContent: "center"
           }}
         >
-          <Card
-          style={{ background:'#31e8e8', opacity:"0.7"}}
-
-          >
+          <Card style={{ background: "#31e8e8", opacity: "0.7" }}>
             <Card.Body>
               <Form onSubmit={this.onSubmit}>
                 <Form.Label> Enter Employee Name </Form.Label>
@@ -97,7 +94,9 @@ class EmployeeForm extends Component {
                   value={manager_id}
                   onChange={this.onChange}
                 />
-                <Button  variant="primary" type="submit">Add</Button>
+                <Button variant="primary" type="submit">
+                  Add
+                </Button>
               </Form>
             </Card.Body>
           </Card>

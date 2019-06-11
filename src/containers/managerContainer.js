@@ -5,12 +5,9 @@ import { fetchManagers, deleteManager } from "../redux/actions/managerActions";
 
 import Managers from "../components/managers";
 
-
-
 class ManagerContainer extends Component {
   componentDidMount() {
     this.props.fetchManagers();
-
   }
 
   render() {
@@ -18,9 +15,10 @@ class ManagerContainer extends Component {
 
     return (
       <div>
-
-            <Managers managers={this.props.managers} deleteManager={this.props.deleteManager}/>
-
+        <Managers
+          managers={this.props.managers}
+          deleteManager={this.props.deleteManager}
+        />
       </div>
     );
   }
@@ -29,8 +27,7 @@ class ManagerContainer extends Component {
 const mapStateToProps = state => {
   console.log(state, "company state");
   return {
-    managers: state.managersReducer.managers,
-
+    managers: state.managersReducer.managers
   };
 };
 
@@ -39,7 +36,6 @@ const mapDispatchToProps = dispatch =>
     {
       fetchManagers,
       deleteManager
-
     },
     dispatch
   );
