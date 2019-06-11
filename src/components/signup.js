@@ -7,7 +7,7 @@ import { signupUser } from "../redux/actions/userActions";
 import Form from "react-bootstrap/Form";
 import logo from "../images/logo.png";
 
-function validate(name, email, password, password_confirmation) {
+function validate(name, email, password) {
   // true means invalid, so our conditions got reversed
   return {
     name: name.length === 0,
@@ -82,7 +82,7 @@ class Signup extends Component {
             <Form.Label>Name</Form.Label>
             <Form.Control
               className={errors.name ? "error" : ""}
-              size="sm"
+
               onChange={this.onChange}
               name="name"
               id="name"
@@ -96,7 +96,7 @@ class Signup extends Component {
             <Form.Label>Email</Form.Label>
             <Form.Control
               className={errors.email ? "error" : ""}
-              size="sm"
+
               onChange={this.onChange}
               name="email"
               id="email"
@@ -110,7 +110,7 @@ class Signup extends Component {
           <Form.Label>Password</Form.Label>
           <Form.Control
               className={errors.password ? "error" : ""}
-              size="sm"
+              
               onChange={this.onChange}
               name="password"
               id="password"
