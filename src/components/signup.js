@@ -82,8 +82,8 @@ class Signup extends Component {
             <Form.Label>Name</Form.Label>
             <Form.Control
               className={errors.name ? "error" : ""}
-
               onChange={this.onChange}
+              size="lg"
               name="name"
               id="name"
               type="text"
@@ -96,13 +96,13 @@ class Signup extends Component {
             <Form.Label>Email</Form.Label>
             <Form.Control
               className={errors.email ? "error" : ""}
-
               onChange={this.onChange}
+              size="lg"
               name="email"
               id="email"
               type="text"
               value={email}
-              placeholder=" Enter Email"
+              placeholder="Enter Email"
             />
           </Form.Group>
           <Form.Group>
@@ -110,11 +110,11 @@ class Signup extends Component {
           <Form.Label>Password</Form.Label>
           <Form.Control
               className={errors.password ? "error" : ""}
-              
               onChange={this.onChange}
+              size="lg"
               name="password"
               id="password"
-              type="text"
+              type="password"
               value={password}
               placeholder=" Enter Password"
             />
