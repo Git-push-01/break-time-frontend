@@ -66,7 +66,7 @@ class Signup extends Component {
     console.log(this.state);
     return (
       <div>
-      <img src={logo} alt="Logo" className="center" />
+        <img src={logo} alt="Logo" className="center" />
         <Form
           style={{
             display: "flex",
@@ -77,13 +77,11 @@ class Signup extends Component {
           className="signup"
           onSubmit={this.onSubmit}
         >
-
           <Form.Group>
             <Form.Label>Name</Form.Label>
             <Form.Control
               className={errors.name ? "error" : ""}
               onChange={this.onChange}
-              size="lg"
               name="name"
               id="name"
               type="text"
@@ -97,7 +95,6 @@ class Signup extends Component {
             <Form.Control
               className={errors.email ? "error" : ""}
               onChange={this.onChange}
-              size="lg"
               name="email"
               id="email"
               type="text"
@@ -106,25 +103,25 @@ class Signup extends Component {
             />
           </Form.Group>
           <Form.Group>
-
-          <Form.Label>Password</Form.Label>
-          <Form.Control
+            <Form.Label>Password</Form.Label>
+            <Form.Control
               className={errors.password ? "error" : ""}
               onChange={this.onChange}
-              size="lg"
               name="password"
               id="password"
-              type="password"
+              type="text"
               value={password}
               placeholder=" Enter Password"
             />
           </Form.Group>
-          <div style={{
-            left: 2,
-            fontSize: "32px",
-            position: "relative",
-            top: 23
-          }}>
+          <div
+            style={{
+              left: 2,
+              fontSize: "32px",
+              position: "relative",
+              top: 23
+            }}
+          >
             <Button
               disabled={isDisabled}
               className="submit-btn"
