@@ -12,7 +12,7 @@ class Companies extends Component {
       <div>
         {companyName.map((companynames, index) => {
           return (
-            <p key={companynames.id}>
+            <p key={index}>
             <Button
               onClick={() => this.props.deleteCompany(companynames.id)}
             >
