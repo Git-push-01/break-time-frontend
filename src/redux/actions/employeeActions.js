@@ -21,6 +21,7 @@ export const fetchEmployees = () => {
   }
 }
 export const createEmployee = employee => {
+  console.log('C');
   let data = {
     method: 'POST',
     headers: {
@@ -34,12 +35,15 @@ export const createEmployee = employee => {
   return dispatch => {
     fetch(`${ baseUrl }/employees`, data)
       .then(response => response.json())
-      .then(employees => dispatch({
+      .then(employees =>{
+        console.log('D');
+         dispatch({
         type: 'CREATE_EMPLOYEE',
         payload: employees
-      }))
+      })})
       .catch(err => err)
   }
+  console.log('E');
 }
 
 export const deleteEmployee = id => {

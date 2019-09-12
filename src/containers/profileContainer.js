@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import BreakContainer from "../containers/breakContainer";
 import CompanyContainer from "../containers/companyContainer";
 import ManagerContainer from "../containers/managerContainer";

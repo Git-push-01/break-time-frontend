@@ -32,8 +32,9 @@ class EmployeeForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+    console.log('A');
     this.props.createEmployee(this.state);
+    console.log('B');
     this.setState({
       employeename: "",
       user_id: "",

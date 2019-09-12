@@ -6,6 +6,7 @@ import { loginUser } from "../redux/actions/userActions";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import logo from "../images/logo.png";
+import Comments from "./comments"
 
 function validate(email, password) {
   // true means invalid, so our conditions got reversed
@@ -55,6 +56,8 @@ class Login extends Component {
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
   }
+
+
 
   render() {
     console.log(this.state);
@@ -132,6 +135,9 @@ class Login extends Component {
             </a>
           </div>
         </Form>
+
+        <Comments/>
+
       </div>
     );
   }

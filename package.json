@@ -4,11 +4,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "dotenv": "^8.0.0",
     "http-proxy-middleware": "^0.19.1",
     "jquery": "^3.4.0",
+    "local-storage": "^2.0.0",
     "material-ui": "^0.20.2",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
