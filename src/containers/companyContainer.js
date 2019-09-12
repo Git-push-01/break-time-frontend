@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Companies from "../components/companies";
 import { bindActionCreators } from "redux";
-import { fetchCompanies } from "../redux/actions/companyActions";
+import { fetchCompanies, deleteCompany } from "../redux/actions/companyActions";
 
 class CompanyContainer extends Component {
   componentDidMount() {
@@ -12,7 +12,7 @@ class CompanyContainer extends Component {
   render() {
     return (
       <div>
-        <Companies companies={this.props.companies} />
+        <Companies companies={this.props.companies} deleteCompany={this.props.deleteCompany} />
       </div>
     );
   }
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchCompanies
+      fetchCompanies, deleteCompany
     },
     dispatch
   );
