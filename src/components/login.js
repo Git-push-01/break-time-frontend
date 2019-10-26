@@ -6,7 +6,7 @@ import { loginUser } from "../redux/actions/userActions";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import logo from "../images/logo.png";
-import Comments from "./comments"
+
 
 function validate(email, password) {
   // true means invalid, so our conditions got reversed
@@ -136,7 +136,7 @@ class Login extends Component {
           </div>
         </Form>
 
-        <Comments/>
+
 
       </div>
     );
