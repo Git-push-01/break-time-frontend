@@ -5,6 +5,7 @@ import ManagerContainer from "../containers/managerContainer";
 import EmployeeContainer from "../containers/employeeContainer";
 import logo from "../images/logo.png";
 import { Container } from "react-bootstrap";
+import { Card } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchUser } from "../redux/actions/userActions";
