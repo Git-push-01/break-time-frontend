@@ -31,6 +31,7 @@ const mapDispatchToProps = dispatch =>
       fetchCompanies, deleteCompany
     },
     dispatch
+    
   );
 
 export default connect(
