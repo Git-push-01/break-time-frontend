@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 import { loginUser } from "../redux/actions/userActions";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import logo from "../images/logo.png";
+// import logo from "../images/logo.png";
 
 
 function validate(email, password) {
