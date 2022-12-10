@@ -3,7 +3,7 @@
   "proxy": "https://break-time-api.herokuapp.com",
   "version": "0.1.0",
   "engines": {
-    "node": "17.1.0"
+    "node": "16.13.0"
   },
   "private": true,
   "dependencies": {
