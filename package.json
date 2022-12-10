@@ -2,6 +2,9 @@
   "name": "break-time-frontend",
   "proxy": "https://break-time-api.herokuapp.com",
   "version": "0.1.0",
+  "engines": {
+   "node": "17.1.0"
+ },
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
