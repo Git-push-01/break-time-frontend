@@ -24,7 +24,7 @@ export const loginUser = (user, callback) => {
           payload: user.current
         })
 
-        callback()
+
       })
       .catch((error) => alert('Invalid Email or Password'));
 
@@ -75,7 +75,7 @@ export const fetchUser = () => {
       .then(users => {
         dispatch({
           type: 'SET_USER',
-          payload: users
+          payload: users.current
         })
       })
       .catch(err => err)
