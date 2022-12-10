@@ -3,8 +3,8 @@
   "proxy": "https://break-time-api.herokuapp.com",
   "version": "0.1.0",
   "engines": {
-   "node": "17.1.0"
- },
+    "node": "17.1.0"
+  },
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
@@ -38,7 +38,8 @@
     "react-widgets": "^4.4.11",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "webpack": "^5.75.0"
   },
   "scripts": {
     "start": "react-scripts start",
